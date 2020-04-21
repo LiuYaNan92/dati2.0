@@ -1,0 +1,110 @@
+
+
+
+<view class="s-bg">
+  <image src="../../images/audio_bg.jpg"></image>
+  <view class="content_box">
+    <view class="info_box">
+      <view class="box">
+        <view class="s-name">{{storyName}}</view>
+        <!-- <view class="s-author">{{storyAuthor}}</view> -->
+      </view>
+      <view class="l-btn" bindtap="showList">
+        <view></view>
+        <view>
+          <image src="https://win-east.cn/winsPQW/img/list_icon.png"></image>
+          <view>故事列表</view>
+        </view>
+      </view>
+      <slider class="slider" step="1" min="0" backgroundColor="#f0f0f0" max="{{longTime}}" value="{{seekTime}}" block-size="14" activeColor="#8cc8b9" block-color="#8cc8b9" bindchange='seek' bindchanging='seeking'></slider>
+      <view class="play-box"> 
+        <view class="start-time">{{startTime}}</view>
+        <view class="end-time">{{endTime}}</view>
+      </view>
+      <view class="play-btn">
+        <view style="padding:13rpx 3rpx;" bindtap="prevClick"><image class="prev-btn" src="../../images/prev.png" ></image></view>
+        <image class="play" src="../../images/play.png" bindtap="audioPlay" wx:if="{{play}}"></image>
+        <image class="play" src="../../images/pause.png" bindtap="pause" wx:if="{{pause}}"></image>
+        <view style="padding:13rpx 3rpx;" bindtap="nextClick"><image class="next-btn" src="../../images/next.png" ></image></view>
+      </view>
+      
+    </view>
+  </view>
+</view>
+
+
+
+
+<view class="list-box" style="bottom:{{listFlag?'0':'-851rpx'}}">
+  <view class="top-img" bindtap="hideList">关闭</view>
+  <view class="t-box">
+    <view bindtap="playAll" style="display:flex;">
+      <image class="t-img1" src="../../images/s_icon5.png"></image>
+      <view class="all-text">播放全部<text>（共{{list.length}}首）</text></view>
+    </view>    
+    <!-- <image bindtap='refreshClick' class="t-img2" src="../../images/s_icon3.png"  style="animation:{{refresh?'zhuan 1s linear':''}}"></image> -->
+    <view bindtap="playOrder">{{playText}}</view>
+  </view>
+  <scroll-view class="l-warp" scroll-y="true" scroll-into-view="{{toView}}" scroll-width-animation="true">
+      <view class="list" wx:for="{{list}}" wx:key="list" data-name="{{item.name}}" data-author="{{item.author}}" data-url="{{item.url}}" data-index="{{index}}" data-id="{{item.id}}" id="item{{item.id}}" bindtap="selectMusic"> 
+        <view class="num">{{index+1}}</view>
+        <view class="l-content {{storyIndex==item.id?'active':''}}" style="{{item.id==0?'border-top:2rpx solid #d8d8d8':''}}">
+          <!-- <view class="name">{{item.name}}</view> -->
+          <view class="l-text">
+            <!-- <text>{{item.author}}</text> -->
+            <text class="name">{{item.name}}</text>
+            <text>时长：{{item.time}}</text>
+          </view>
+        </view>
+      </view>
+  </scroll-view>
+  
+</view>
+<view class="music-box" wx:if="{{musicFlag}}" bindtap="hideList"></view>
+
+
+
+
+
+
+
+<view class="music-list-box" wx:if="{{musicMask}}" bindtap="hideList">
+  <view class="music_box">
+    <view class="m-list-box">
+      <view class="m-list" wx:for="{{aList}}" wx:key="aList">
+        <view class="l-box">
+          <view class="title_box">
+            <text>{{item.title}}（共{{item.listtotal}}首）</text>
+            <text class="pay_btn">付费</text>
+          </view>
+          <view data-id="{{item.id}}" data-is_show="{{item.isShow}}" catchtap="isShow">
+            <image class="img" src="https://win-east.cn/winsPQW/img/a_icon1.png"></image>
+            <image class="img" src="https://win-east.cn/winsPQW/img/a_icon2.png"></image>
+          </view>
+        </view>
+        <view class="li-box" wx:if="{{item.isShow}}">
+          <view class="l-li" wx:for="{{item.list}}" wx:for-item="list" wx:key="list">
+            <view class="text_num">{{index+1}}</view>
+            <view class="li_box">
+              <view class="left">
+                <view class="name">{{list.name}}</view>
+                <view class="time">
+                  <image src="../../images/time.png"></image>
+                  <image src="../../images/p_icon3.png"></image>
+                  <text>{{list.time}}</text>
+                </view>
+              </view>
+              <view class="right">
+                <image class="img" src="../../images/p_icon1.png"></image>
+                <image class="img" src="../../images/p_icon2.png"></image>
+              </view>
+            </view>
+          </view>        
+        </view>
+        
+      </view>
+    
+    </view>
+    <view class="close_text">关闭</view>
+  </view>
+</view>

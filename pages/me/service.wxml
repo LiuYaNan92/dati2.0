@@ -1,0 +1,75 @@
+
+<view id="warp">
+  <view class="box">
+    <image class="img" src="../../images/head.png"></image>
+    <view class="right">
+      <view class="r_text">服务助手</view>
+      <view class="q_list">
+        <view class="text1">您好，欢迎来到养娃题库！</view>
+        <view class="text2">常见问题自助处理：</view>
+        <view class="text3" data-index="0" bindtap="question1Click">1.何时发货？</view>
+        <view class="text3" data-index="1" bindtap="question2Click">2.哪里查看兑换订单？</view>
+        <view class="text3" data-index="2" bindtap="question3Click">3.无法正常签到？</view>
+        <view class="text3" data-index="3" bindtap="question4Click">4.连签奖励未获得？</view>
+        <view class="text4">没有解决问题请点击人工客服</view>
+      </view>
+    </view>
+  </view>
+  <view class="list" wx:for="{{list}}" wx:key="list">
+    <view class="box box2">
+      <view class="right">
+        <view class="r_text">{{nickName}}</view>
+        <view class="q_list">
+          <view class="text1" wx:if="{{item.text1!=''}}">{{item.text1}}</view>
+          <view class="text1" wx:if="{{item.text3!=''}}">{{item.text3}}</view>
+          <image style="width:420rpx;" mode="widthFix"  wx:if="{{item.imgurl!=''}}"  src="{{item.imgurl}}"></image>
+        </view>
+      </view>
+      <image class="img" src="{{headImg}}"></image>
+    </view>
+    <view class="box box1" wx:if="{{item.text2!=''}}">
+      <image class="img" src="../../images/head.png"></image>
+      <view class="right">
+        <view class="r_text">服务助手</view>
+        <view class="q_list">
+          <view class="text1">{{item.text2}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+
+</view>
+
+
+  <view class="bottom_box" bindtap="showMask">
+    <image  class="s_img" src="https://win-east.cn/winsPQW/img/ser_icon.png"></image>
+    <view class="text">人工客服</view>
+  </view>
+  <view class="massage">
+    <input class="text" placeholder="发私信" bindinput="getInfo" value="{{textVal}}"></input>
+    <image class="add_img" bindtap="addImg" src="https://win-east.cn/winsPQW/img/ser_icon1.png"></image>
+    <view class="btn" bindtap="sendClick">发送</view>
+  </view>
+
+<view class="mask" wx:if="{{maskFlag}}">
+  <view class="m_box">
+    <image class="img1" src="https://win-east.cn/winsPQW/img/close_btn.png"  bindtap="hideMask"></image>
+    <!-- <image class="img2" src="../../images/ser_img.png"></image> -->
+    <view class="text1">请添加下方微信进行咨询</view>
+    <view class="text2"><text selectable="true">kxjtye</text></view>
+    <view class="text3" bindtap="hideMask">确定</view>
+  </view>
+</view>
+
+<!-- 
+
+  1.何时发货？
+每周五统一发货，发货后会更新快递信息，如遇商城礼品缺货，兑换金币退回，并额外补偿一定的金币数。
+2.哪里查看兑换订单？
+点击小程序“我的订单”查看兑换订单详情
+3.无法正常签到？
+请关闭小程序后清除微信缓存在进行签到，如果仍然不能签到请联系人工客服说明。
+4.连签奖励未获得？
+可查看金币记录查询金币获得详情
+ -->

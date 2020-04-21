@@ -1,0 +1,221 @@
+.body{
+  width: 100%;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  z-index:10;
+  position: fixed;
+  top:0;left:0;
+}
+
+.stage{
+  flex-grow: 1;
+}
+
+
+.bar{
+  height: 80rpx;
+  padding: 36rpx;
+  display: flex;
+  flex-direction: row;
+  background-color: black;
+}
+
+.btn{
+  position: relative;
+  flex-grow: 1;
+    border: 2rpx solid grey;
+  line-height: 80rpx;
+  text-align: center;
+    color: white;
+   font-size: 32rpx;
+}
+
+.btn-cancel{
+   border-top-left-radius: 40rpx;
+   border-bottom-left-radius: 40rpx;
+}
+
+.btn-submit{
+   border-top-right-radius: 40rpx;
+   border-bottom-right-radius: 40rpx;
+}
+page{
+  background:#bdd8d1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom:130rpx;
+}
+.sign_box .s_img1, .s_img2{
+  width:198rpx;
+  height:191rpx;
+  z-index: 2;
+}
+.sign_box .s_img1{
+  position: absolute;
+  top:-22rpx;left:-22rpx;
+}
+.sign_box .s_img2{
+  position: absolute;
+  bottom:-22rpx;right:-22rpx;
+}
+.sign_box .s_img3_box{
+  width:58rpx;
+  height:50rpx;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left:18rpx;
+  bottom:18rpx;
+}
+
+.sign_box .s_img3{
+  width:48rpx;
+  height:42rpx;
+  
+}
+.sign_box .c_box{
+  position: absolute;
+  left:18rpx;
+  bottom:-90rpx;
+  font-size:24rpx;
+}
+.sign_box .c_box .s_img4{
+  width:36rpx;
+  height:46rpx;
+}
+.sign_box{
+  width:636rpx;
+  padding-bottom:20rpx;
+  margin:64rpx auto 0;
+  /* border-radius:20rpx; */
+ 
+  background: #fff;
+  position: relative;
+}
+.sign_box .top_box{
+  width:555rpx;
+  height:605rpx;
+  border-radius:20rpx;
+  overflow: hidden;
+  margin:0 auto;
+  position: relative;
+  top:46rpx;
+}
+.sign_box .top_img{
+  width:555rpx;
+  height:605rpx;
+}
+.sign_box .change{
+  width:124rpx;
+  height:48rpx;
+  border-radius:24rpx;
+  background:#000;
+  opacity: 0.5;
+  color:#fff;
+  font-size:24rpx;
+  position:absolute;
+  top:24rpx;
+  right:14rpx;
+  text-align:center;
+  line-height:48rpx;
+}
+.sign_box .content{
+  display:flex;
+  width:556rpx;
+  margin:66rpx auto 0;
+  justify-content: space-between;
+}
+.sign_box .c_left{
+  width:400rpx;
+}
+.sign_box .c_left .text1{
+  font-size:36rpx;
+}
+.sign_box .c_left .text1 text{
+  font-size:54rpx;
+  margin-left:15rpx;
+}
+.sign_box .c_left .text2{
+  font-size:28rpx;
+  background:#bdd8d1;
+  display:inline-block;
+  padding:5rpx 15rpx;
+  border-radius:20rpx;
+  margin-top:30rpx;
+  color:#fff;
+}
+.sign_box .c_left .text3{
+  font-size:28rpx;
+  color:#171717;
+  margin-top:30rpx;
+  height: 60rpx;
+}
+.sign_box .c_right{
+  width:108rpx;
+  height:149rpx;
+  border:10rpx solid #bdd8d1;
+  font-size:40rpx;
+  text-align: center;
+}
+.sign_box .c_right .text1{
+  position:relative;
+  top:10rpx;
+}
+.sign_box .c_right .text2{
+  font-size:70rpx;
+}
+.sign_box .img_box{
+  text-align: center;
+  margin-top:10rpx;
+  font-size:24rpx;
+}
+.sign_box .img_box image{
+  width:152rpx;
+  height:152rpx;
+}
+
+.bottom_box{
+  width:100%;
+  position: fixed;
+  bottom:48rpx;
+  left:0;
+}
+.bottom_box .box{
+  width:630rpx;
+  margin:0 auto;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.bottom_box .b_box{
+  width:280rpx;
+  height:88rpx;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  font-size:30rpx;
+  background:#fff;
+  border-radius:40rpx;
+}
+.bottom_box .b_box .img1{
+  width:41rpx;
+  height:37rpx;
+  margin-right: 15rpx;
+}
+.bottom_box .b_box .img2{
+  width:38rpx;
+  height:37rpx;
+  margin-right: 15rpx;
+}
+
+canvas{
+  width:750rpx;
+  height:100%;
+  position: absolute;
+  top: 0;
+  left:0rpx;
+  z-index:3;
+  /* background:#f6f6f6; */
+}

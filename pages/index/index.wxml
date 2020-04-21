@@ -1,0 +1,354 @@
+<view class="content_box" wx:if="{{checkInviterFlag}}">
+  <view class="warp_box">
+    <view class="img_box">
+      <image class="img" id="img1" src="https://win-east.cn/winsPQW/img/v_img.png"></image>
+      <image class="img2" id="img2" src="https://win-east.cn/winsPQW/img/v_img2.png" style="left:{{coord*2}}rpx"></image>
+    </view>
+    <movable-area class="content">
+      请滑动滑块完成认证    
+      <view class="c_box" style="width:{{coord}}px">{{isCheck?'点击确认完成认证':''}}</view>
+      <movable-view class='box' style='width:{{box_width}}rpx' friction="{{100}}" direction="horizontal" x="{{x}}" damping="{{500}}" bindchange="drag" bindtouchend="dragOver">
+        <image class='movable-icon' src="https://win-east.cn/winsPQW/img/v_img3.png"></image>
+      </movable-view>
+    </movable-area>
+    <view class="btn {{isCheck?'active':''}}" bindtap="{{isCheck?'addInviterInfo':''}}">确定</view>
+  </view>
+</view>
+<view class="bg_img" wx:if="{{is_stop_show==1}}">
+  <image mode="aspectFill" src="../../images/img.png"></image>
+</view>
+<information title="{{realName}}" wx:if="{{informationFlag}}"></information>
+<view class="head">
+  <image class="t_bg" src="../../images/t_bg.png"></image>
+  <view class="info_box">
+      <view class="tou-img">
+        <image src="{{headImg}}"></image>
+        <view class="lev-box" wx:if="{{levelName!=''}}">
+          <text>{{levelName}}</text>
+        </view>
+      </view>
+      <view class="name-box">
+        <view class="text1">
+          <view class="name">{{nickName}}</view>
+          <view class="right" bindtap="toPersonal" wx:if="{{!informationFlag}}">
+            <text>个人信息</text>
+            <image src="https://win-east.cn/winsPQW/img/back.png"></image>
+          </view>
+        </view>
+        <view class="text2">用户ID：{{userId}}</view>
+      </view>
+  </view>
+  <view class="integral_box">
+      <view class="int_list">
+        <view class="text1">{{gold}}</view>
+        <view class="text2">金币</view>
+        <image class="int_img" bindtap="goldLog" src="https://win-east.cn/winsPQW/img/int_icon1.png"></image>
+      </view>
+      <view class="int_list">
+        <view class="text1">{{integral}}</view>
+        <view class="text2">积分</view>
+      </view>
+  </view>
+</view>
+
+
+<!-- <view bindtap='noAgreeGetUser' style='font-size:22rpx;color:#999999;text-align:center;line-height:22rpx;'>取消</view> -->
+  
+<view class="top-box">
+  <view class="sign-info">
+   <view class="s-box">
+      <view style="font-size:46rpx;padding-right:20rpx;">{{month}}</view>
+      <view class="sign-btn" bindtap="isSign">
+        <image src="https://win-east.cn/winsPQW/img/sign_icon.png"></image>
+        <text wx:if="{{signFlag}}">已签到</text>
+        <text wx:else>签到</text>
+      </view>
+      <!-- <view class="remind-box">
+        <text>每日签到提醒</text>
+        <image src="{{remindFlag?'../../images/on.png':'../../images/off.png'}}" bindtap="remindClick"></image>
+      </view> -->
+    </view>
+    <view class="s-box">
+      <view class="l-text">您已经累计签到<text>{{signTotal}}</text>天</view>
+      
+       <!-- <view class="text2" bindtap="toSign">查看今日日签 ></view> -->
+    </view>
+   
+    <view class="date-list">
+        <view class="sign-box" wx:for="{{datList}}" wx:key="datList">
+          <view class="img">
+            <image src="{{item.isSign?'https://win-east.cn/winsPQW/img/is_sign.png':'https://win-east.cn/winsPQW/img/sign.png'}}"></image>
+            <view class="s_num" wx:if="{{index==datList.length-1}}">+9</view>
+            <view class="s_num" wx:else>{{item.isSign?'':'+3'}}</view>
+          </view>
+          <view class="text">{{item.time}}</view>
+        </view>
+    </view>
+   <view class="text2" bindtap="toSign">查看今日日签 ></view>
+  </view>
+  <image class="bg" src="../../images/bg.png"></image>
+</view>
+<view class="explain_box" bindtap="integralDescription">
+  <view class="text1">
+    <image class="img1" src="https://win-east.cn/winsPQW/img/int_icon2.png"></image>
+    <text>积分说明</text>
+  </view>
+  <view class="text2">
+    <text>{{levelText}}</text>
+    <image class="img2" src="https://win-east.cn/winsPQW/img/back2.png"></image>
+  </view>
+</view>
+
+<view class='pic-box' wx:if="{{advList.length>0}}">
+  <swiper>
+    <swiper-item data-url="{{item.localurl}}" wx:for="{{advList}}" wx:key="advList" bindtap="advClick">
+      <image src="{{item.imageurl}}" ></image>
+    </swiper-item>
+  </swiper>
+  
+</view>
+<view class='tab_box'>
+  
+  <image class="left_btn" wx:if="{{leftFlag}}" src="https://win-east.cn/winsPQW/img/left.png" bindtap="prevBtn"></image>
+  <image class="right_btn" wx:if="{{rightFlag}}" src="https://win-east.cn/winsPQW/img/right.png" bindtap="nextBtn"></image>
+  <swiper current="{{indexNum}}" bindchange="pageChange" style="height:{{qHeight}}">
+    <swiper-item wx:for="{{answerList}}" wx:key="answerList">
+      <view class="tab-list">
+        <image class="d_img" src="../../images/double.png" wx:if="{{item.is_double==1}}"></image>
+        <view class="total_num" wx:if="{{item.usetime!=''}}">{{item.usetime}}•{{index+1}}/{{answerList.length}}</view>
+        <view class="title1">随堂考</view>
+        <view class="title2">{{item.title}}</view>
+        <view class="img">
+          <image src="{{item.question_image}}"></image>
+        </view>
+        <view class="option">
+          <view class="option_box" wx:for="{{item.answer_list}}" wx:for-item="answer_list" wx:key="answer_list">
+            <view class="o-list" data-qid="{{item.questionid}}" data-option="{{answer_list.option}}" data-right="{{item.correct_answer}}" bindtap="{{isBand?'selectClick':''}}">
+              <text class="text1">{{answer_list.option}}</text>
+              <view class="text">{{answer_list.content}}</view>
+              <!-- <view class="o_ms">点击查看文章</view> -->
+            </view>
+            <view wx:if="{{item.rightAnswer!=''}}" class="o-list {{answer_list.option==item.rightAnswer?'right':''}}" data-url="{{item.article_url}}" bindtap="viewArticles">
+              <image style="opacity:{{answer_list.option==item.rightAnswer?'1':'0'}}" src="https://win-east.cn/winsPQW/img/r_icon.png"></image>
+              <view style="opacity:{{answer_list.option==item.rightAnswer?'1':'0'}}" class="text">{{answer_list.content}}</view>
+              <!-- <view class="o_ms">点击查看文章</view> -->
+            </view>
+            <view wx:if="{{item.errorAnswer!=''}}" class="o-list {{answer_list.option==item.errorAnswer?'error':''}}" data-url="{{item.article_url}}" bindtap="viewArticles">
+              <image style="opacity:{{answer_list.option==item.errorAnswer?'1':'0'}}"  src="https://win-east.cn/winsPQW/img/error.png"></image>
+              <view style="opacity:{{answer_list.option==item.errorAnswer?'1':'0'}}" class="text">{{answer_list.content}}</view>
+              <!-- <view class="o_ms">点击查看文章</view> -->
+            </view>
+          </view>
+        </view>
+        <view class="share_box">
+          <view class="s_box">
+            <image src="https://win-east.cn/winsPQW/img/share1.png"></image>
+            <text>朋友圈</text>
+            <button open-type="contact" send-message-title="养娃必备题库" send-message-path="/pages/index/index&question_id={{item.questionid}}" send-message-img="../../images/sbg.jpg" show-message-card="true" bindcontact="handleContact"></button>
+          </view>
+          <view class="s_box">
+            <image src="https://win-east.cn/winsPQW/img/share2.png"></image>
+            <text>微信好友</text>
+            <button open-type="share" bindtap="onShareAppMessage"></button>
+          </view>
+        </view>
+      </view>
+    </swiper-item>
+    <swiper-item wx:if="{{showFlag}}">
+      <view class="tab-list" style="height:900rpx;">
+        <view class="last_icon">
+          <image src="../../images/f_icon.png"></image>
+        </view>
+        <view class="last_icon_btn" bindtap="toSotryList">哄睡故事</view>
+        <view class="last_icon_btn" bindtap="toMallPage">商城逛一逛</view>
+        <view class="last_icon_btn" bindtap="toAnswerLog">查看往期题目</view>
+      </view>
+    </swiper-item>
+    
+  </swiper>
+</view>
+
+<view class="mask_box" wx:if="{{maskFlag}}">
+  <view class="m_box">
+    <image class="img1" src="https://win-east.cn/winsPQW/img/gold_img.png"></image>
+    <image class="img2" src="https://win-east.cn/winsPQW/img/close_btn.png" bindtap="hideMask"></image>
+  </view>
+</view>
+
+<!-- 个人信息 -->
+<view class="info_mask_box" wx:if="{{infoFlag}}">
+  <view class="in_box">
+    <image src="https://win-east.cn/winsPQW/img/close_btn.png" class="close_btn" bindtap="hideMask"> </image>
+    <form bindsubmit="{{!isBand?'addressEdit':''}}">
+        <view class="add-box">
+          <view class="title">基本信息认证</view>
+            <view class="a-list">
+              <!-- <text class="a-text">年龄</text> -->
+              <input type="text" value="{{name}}" name="name" placeholder="姓名" bindinput="getName"></input>
+            </view>
+            <view class="a-list">
+              <!-- <text class="a-text"></text> -->
+              <input type="number" maxlength='11' value="{{phone}}" name="phone" placeholder="请输入手机号" bindinput="getPhoneNumber"></input>
+            </view>
+            <view class="a-list">
+                <!-- <view class="a-text">所在地区</view> -->
+                <view class="d-box" bindtap="selectDateShow">
+                  <view class="picker" style="color:{{date=='请选择出生年月日'?'#999':'#222'}};">
+                    {{date}}             
+                  </view>
+                </view>
+                <image class="up" src="https://win-east.cn/winsPQW/img/back2.png"></image>
+            </view>      
+
+            <view class="btn-box">
+              <button class='add-btn' formType="submit" >完成</button>
+              <view class="tip">完成认证信息获得金币<text>+5</text></view>
+            </view>
+        </view> 
+    </form>
+  </view>
+</view>
+
+<view class="mask-box" wx:if="{{dateFlag}}" bindtap="hideData"></view>
+<view class="date-warp" wx:if="{{dateFlag}}">
+  <view class="text-box">
+    <view class="text1" bindtap="hideData">取消</view>
+    <view class="text2" bindtap="selectData">确定</view>
+  </view>
+  <picker-view indicator-style="height: 50px;text-align:center;font-size:30rpx;" value="{{value}}" bindchange="bindChange">
+      <picker-view-column>
+        <view wx:for="{{years}}" wx:key="years" style="line-height: 50px;text-align:center;">{{item}}年</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view wx:for="{{months}}" wx:key="months" style="line-height: 50px;text-align:center;">{{item}}月</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view wx:for="{{days}}" wx:key="days" style="line-height: 50px;text-align:center;">{{item}}日</view>
+      </picker-view-column>
+    </picker-view>
+</view>
+
+<!--启动页 -->
+<!-- <view class="startUpPage" wx:if="{{startUpFlag}}">
+  <view class="img1">
+    <image src="../../images/p_pic.png"></image>
+  </view>
+  <view class="img2">
+    <image src="../../images/p_btn.png"></image>
+    <button type="primary" size="mine" open-type="getUserInfo" class="login_btn" bindgetuserinfo="agreeGetUser" lang="zh_CN"></button>
+  </view>
+</view> -->
+<view class="s_mask" wx:if="{{startUpFlag}}"></view>
+<view class="startUpPage" wx:if="{{startUpFlag}}">
+  <view class="img2">
+    <view class="log_text">点击登录</view>
+    <button type="primary" size="mine" open-type="getUserInfo" class="login_btn" bindgetuserinfo="agreeGetUser" lang="zh_CN"></button>
+  </view>
+</view>
+
+<view class="s_mask_box" wx:if="{{signOut}}">
+  <view class="s_box">
+    <image src="../../images/p_img1.png"></image>
+    <view class="text1">账户异常</view>
+    <view class="text2">您的账户存在异常</view>
+    <view class="text2">请联系小程序客服进行咨询</view>
+    <navigator class="btn" target="miniProgram" open-type="exit"> 我知道了</navigator>
+  </view>
+</view>
+
+<view class="footer">
+  <view class="f_li">
+    <image src="https://win-east.cn/winsPQW/img/b_icon1.png"></image>
+    <view class="text">首页</view>
+  </view>
+  <view class="f_li" bindtap="toMall">
+    <image src="https://win-east.cn/winsPQW/img/icon2.png"></image>
+    <view class="text">商城</view>
+  </view>
+  <view class="f_li" bindtap="toWelfare">
+    <image src="https://win-east.cn/winsPQW/img/icon3.png"></image>
+    <view class="text">福利</view>
+    <view class="is_show" wx:if="{{msgIsShow!=0}}"></view>
+  </view>
+  <view class="f_li" bindtap="toMe">
+    <image src="https://win-east.cn/winsPQW/img/icon4.png"></image>
+    <view class="text">我的</view>
+  </view>
+</view>
+
+
+<view class="loading" wx:if="{{loadFlag}}">
+  <view>
+    <image src="../../images/loading.gif"></image>
+    <view class="text">正在加载...</view>
+  </view>
+</view>
+
+<view class="load_img_box" style="display:none;">
+  <image src="https://win-east.cn/winsPQW/img/a_icon1.png"></image>
+  <image src="https://win-east.cn/winsPQW/img/a_icon2.png"></image>
+  <image src="https://win-east.cn/winsPQW/img/b_icon1.png"></image>
+  <image src="https://win-east.cn/winsPQW/img/b_icon2.png"></image>
+  <image src="https://win-east.cn/winsPQW/img/b_icon3.png"></image>
+  <image src="https://win-east.cn/winsPQW/img/b_icon4.png"></image>
+  <image src="https://win-east.cn/winsPQW/img/back.png"></image>
+  <image src="https://win-east.cn/winsPQW/img/back2.png"></image>
+  <image src="https://win-east.cn/winsPQW/img/btn1.png"></image>
+  <image src="https://win-east.cn/winsPQW/img/btn2.png"></image>
+  <image src="https://win-east.cn/winsPQW/img/check.png"></image>
+  <image src="https://win-east.cn/winsPQW/img/checked.png"></image>
+  <image src="https://win-east.cn/winsPQW/img/close.png"></image>
+  <image src="https://win-east.cn/winsPQW/img/close_btn.png"></image>
+  <image src="https://win-east.cn/winsPQW/img/icon1.png"></image>
+  <image src="https://win-east.cn/winsPQW/img/icon2.png"></image>
+  <image src="https://win-east.cn/winsPQW/img/icon3.png"></image>
+  <image src="https://win-east.cn/winsPQW/img/icon4.png"></image>
+  <image src="https://win-east.cn/winsPQW/img/in_icon1.png"></image>
+  <image src="https://win-east.cn/winsPQW/img/int_icon1.png"></image>
+  <image src="https://win-east.cn/winsPQW/img/int_icon2.png"></image>
+  <image src="https://win-east.cn/winsPQW/img/list_icon.png"></image>
+  <image src="https://win-east.cn/winsPQW/img/m_icon1.png"></image>
+  <image src="https://win-east.cn/winsPQW/img/m_icon2.png"></image>
+  <image src="https://win-east.cn/winsPQW/img/m_icon3.png"></image>
+  <image src="https://win-east.cn/winsPQW/img/m_icon4.png"></image>
+  <image src="https://win-east.cn/winsPQW/img/m_icon5.png"></image>
+  <image src="https://win-east.cn/winsPQW/img/share1.png"></image>
+  <image src="https://win-east.cn/winsPQW/img/share2.png"></image>
+  <image src="https://win-east.cn/winsPQW/img/on.png"></image>
+  <image src="https://win-east.cn/winsPQW/img/off.png"></image>
+  <image src="https://win-east.cn/winsPQW/img/is_sign.png"></image>
+  <image src="https://win-east.cn/winsPQW/img/sign.png"></image>
+  <image src="https://win-east.cn/winsPQW/img/p_icon1.png"></image>
+  <image src="https://win-east.cn/winsPQW/img/p_icon2.png"></image>
+  <image src="https://win-east.cn/winsPQW/img/p_icon3.png"></image>
+  <image src="https://win-east.cn/winsPQW/img/next.png"></image>
+  <image src="https://win-east.cn/winsPQW/img/next.png"></image>
+  <image src="https://win-east.cn/winsPQW/img/prev.png"></image>
+  <image src="https://win-east.cn/winsPQW/img/pause.png"></image>
+  <image src="https://win-east.cn/winsPQW/img/play.png"></image>
+  <image src="https://win-east.cn/winsPQW/img/s_icon5.png"></image>
+  <image src="https://win-east.cn/winsPQW/img/a_icon.png"></image>
+  <image src="https://win-east.cn/winsPQW/img/a_icon2.png"></image>
+  <image src="https://win-east.cn/winsPQW/img/a_icon3.png"></image>
+  <image src="https://win-east.cn/winsPQW/img/close_btn2.png"></image>
+  <image src="https://win-east.cn/winsPQW/img/error.png"></image>
+  <image src="https://win-east.cn/winsPQW/img/ewm.jpg"></image>
+  <image src="https://win-east.cn/winsPQW/img/f_icon.png"></image>
+  <image src="https://win-east.cn/winsPQW/img/time.png"></image>
+  <image src="https://win-east.cn/winsPQW/img/ser_icon.png"></image>
+  <image src="https://win-east.cn/winsPQW/img/ser_icon1.png"></image>
+  <image src="https://win-east.cn/winsPQW/img/r_icon.png"></image>
+  <image src="https://win-east.cn/winsPQW/img/in_bg.jpg"></image>
+  <image src="https://win-east.cn/winsPQW/img/in_btn.png"></image>
+  <image src="https://win-east.cn/winsPQW/img/in_img1.png"></image>
+  <image src="https://win-east.cn/winsPQW/img/in_img2.jpg"></image>
+  <image src="https://win-east.cn/winsPQW/img/w_img1.jpg"></image>
+  <image src="https://win-east.cn/winsPQW/img/w_img2.jpg"></image>
+  <image src="https://win-east.cn/winsPQW/img/w_close.png"></image>
+  <image src="https://win-east.cn/winsPQW/img/w_pic.png"></image>
+  <image src="https://win-east.cn/winsPQW/img/s_img4.png"></image>
+  <image src="https://win-east.cn/winsPQW/img/v_img.png"></image>
+  <image src="https://win-east.cn/winsPQW/img/v_img2.png"></image>
+  <image src="https://win-east.cn/winsPQW/img/v_img3.png"></image>
+  <image src="https://win-east.cn/winsPQW/img/gold_img.png"></image>
+</view>

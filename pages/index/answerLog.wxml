@@ -1,0 +1,37 @@
+ <view class="tab-list" wx:for="{{listArr}}" wx:key="listArr">
+    <image class="d_img" src="../../images/double.png" wx:if="{{item.is_double==1}}"></image>
+    <view class="title1">第{{item.id}}期随堂考</view>
+    <view class="title2">{{item.title}}<text style="font-weight:bold;">（正确答案:{{item.rightAnswer}}）</text></view>
+    <view class="img">
+      <image src="{{item.question_image}}"></image>
+    </view>
+    <view class="option">
+      <view class="o-list {{item.rightAnswer==answer_list.option?'right':''}} {{item.errorAnswer==answer_list.option?'error':''}}" wx:for="{{item.answer_list}}" wx:for-item="answer_list" wx:key="answer_list" data-url="{{item.article_url}}" bindtap="viewArticles">
+        <text class="text1">{{answer_list.option}}</text>
+        <view class="text">{{answer_list.content}}</view>
+        <image wx:if="{{item.user_answer==answer_list.option}}" class="s_img" src="../../images/select.png"></image>
+      </view>
+    </view>
+    
+    <view class="share_box">
+      <view class="s_box">
+        <image src="https://win-east.cn/winsPQW/img/share1.png"></image>
+        <text>朋友圈</text>
+        <button open-type="contact" send-message-title="养娃必备题库" send-message-path="/pages/index/index&question_id={{item.questionid}}" send-message-img="../../images/sbg.jpg" show-message-card="true" bindcontact="handleContact"></button>
+      </view>
+      <view class="s_box">
+          <image src="https://win-east.cn/winsPQW/img/share2.png"></image>
+          <text>微信好友</text>
+          <button open-type="share" bindtap="onShareAppMessage" style="width:180rpx;"></button>
+        </view>
+    </view>
+</view>
+
+
+<view class="loading" wx:if="{{loadFlag}}">
+  <view>
+    <image src="../../images/loading.gif"></image>
+    <view class="text">加载中...</view>
+  </view>
+</view>
+<view class="no-data" wx:if="{{noData}}">暂无数据...</view>

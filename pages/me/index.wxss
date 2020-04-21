@@ -1,0 +1,110 @@
+/* pages/me/index.wxss */
+.info_box{
+  display:flex;
+  align-items:center;
+  background:#fff;
+  padding:22rpx 0 40rpx;
+}
+.info_box .tou-img{
+  position:relative;
+  width:174rpx;
+  height:136rpx;
+  text-align: center;
+} 
+.info_box .tou-img image{
+  width:124rpx;
+  height:124rpx;
+  border-radius:50%;
+}
+.info_box .tou-img .lev-box{
+  display:flex;
+  justify-content:center;
+  position:absolute;
+  bottom:0;left:0;
+  width:100%;
+}
+.info_box .tou-img .lev-box text{
+  padding:4rpx 22rpx;
+  background:#ffc450;
+  border-radius:20rpx;
+  color:#fff;
+  font-size:24rpx;
+}
+.info_box .name-box{
+  width:545rpx;
+}
+.info_box .name-box .text1{
+  display:flex;
+  justify-content: space-between;
+  align-items:center;
+}
+.info_box .name-box .text2{
+  font-size:28rpx;
+  opacity:0.68;
+  margin-top:14rpx;
+}
+.info_box .name-box .name{
+  font-size:32rpx;
+}
+.info_box .name-box .name text{
+  padding:2rpx 10rpx;
+  font-size:22rpx;
+  color:#75bfab;
+  border:2rpx solid #75bfab;
+  border-radius:6rpx;
+  margin-left:10rpx;
+  position: relative;
+  top:-2rpx;
+}
+.info_box .name-box .right{
+  font-size:32rpx;
+
+}
+.info_box .name-box .right image{
+  width:11rpx;
+  height:19rpx;
+  margin-left:10rpx;
+}
+
+
+.list_box{
+  margin-top:24rpx;
+  background:#fff;
+
+}
+.list_box .list{
+  height:108rpx;
+  border-bottom:2rpx solid #eee;
+  padding:0 30rpx;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+.list_box .list.last{
+  border:none;
+  position: relative;
+}
+.list_box .list.last button{
+  position: absolute;
+  top:0;left:0;
+  height:108rpx;
+  width:750rpx;
+  background:none;
+}
+.list_box .list .icon{
+  width:40rpx;
+  height:40rpx;
+  margin-right:10rpx;
+}
+.list_box .list .left{
+  display:flex;
+  align-items: center;
+}
+.list_box .list .left text{
+  font-size:32rpx;
+}
+.list_box .list .arrow{
+  width:12rpx;
+  height:22rpx;
+}

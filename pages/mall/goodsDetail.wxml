@@ -1,0 +1,145 @@
+
+<view class="tab_img" wx:if="{{detailInfo.type==1}}">
+  <swiper current="current" bindchange="swiperChange" >
+    <swiper-item wx:for="{{detailInfo.goodsinfo.images}}" wx:key="detailInfo">
+      <image src="{{item}}"></image>
+    </swiper-item>
+  </swiper>
+   <view class="r_box">{{oIndex}}/{{detailInfo.goodsinfo.images.length}}</view>
+</view>
+<view class="tab_img" wx:if="{{detailInfo.type==2}}">
+  <image class="v_img" src="{{detailInfo.goodsinfo.cover_image}}"></image>
+</view>
+<view class="detail_box">
+  <view class="price_box">
+    <view class="p_left">
+      <view class="p_text1">{{detailInfo.goodsinfo.price}}<text>金币</text></view>
+      <!-- <view class="p_text2">￥{{detailInfo.goodsinfo.line_price}}</view> -->
+    </view>
+    <view class="p_right" wx:if="{{detailInfo.goodsinfo.sold_total==null}}">已兑换：10</view>
+    <view class="p_right" wx:else>已兑换：{{detailInfo.goodsinfo.sold_total}}</view>
+  </view>
+  <view class="title1">{{detailInfo.goodsinfo.name}}</view>
+  <view class="title2">{{detailInfo.goodsinfo.describe}}</view>
+</view>
+
+
+
+<!-- <view class="g-box">
+  <image class="d-img" src="{{detailInfo.cover}}" bindload="imageLoad"></image>
+  <view class="title">{{detailInfo.goods_name}}</view>
+  <view class="price">
+    <text class="p1">{{detailInfo.gold}}金币</text>
+    <text class="p2">￥{{detailInfo.price}}</text>
+  </view>
+</view> -->
+
+<view class="d-box">
+  
+  <view class="t_box">
+    <view class="b_b">
+      <view class="border"></view>
+      <view class="title">商品详情</view>
+      <view class="border"></view>
+    </view>
+  </view>
+  <view class="img-list">
+    <image wx:for="{{detailInfo.goodsinfo.detail}}" wx:key="detail" mode="widthFix" src="{{item}}"></image>
+  </view>
+</view>
+
+<view class="change-btn" data-price="{{detailInfo.goodsinfo.price}}" data-type="{{detailInfo.type}}" data-goodsid="{{detailInfo.goodsinfo.goodsid}}" bindtap="changeClick">兑换</view>
+
+<view class="mask_box" wx:if="{{voiceFlag}}">
+  <view class="hide_mask" bindtap="hideMask"></view>
+  <view class="m_box">
+    <image class="cloes_btn" src="https://win-east.cn/winsPQW/img/close_btn.png" bindtap="hideMask"></image>
+    <view class="top">
+      <image wx:if="{{detailInfo.type==1}}" src="{{detailInfo.goodsinfo.images[0]}}"></image>
+      <image wx:if="{{detailInfo.type==2}}" src="{{detailInfo.goodsinfo.cover_image}}"></image>
+       <view class="info">
+          <view class="p_text1"><text>￥</text>{{detailInfo.goodsinfo.price}}</view>
+          <view class="title1">{{detailInfo.goodsinfo.name}}</view>
+          <view class="title2">{{detailInfo.goodsinfo.describe}}</view>
+       </view>
+    </view>
+    <view class="voice_text">音频包明细</view>
+    <view class="voice_box">
+      <view class="name">{{detailInfo.goodsinfo.name}}    （共{{detailInfo.goodsinfo.voice_list.length}}首）</view>
+      <view class="voice_img" bindtap="selectVoice">
+        <image class="arrow1" src="{{audioFlag?'https://win-east.cn/winsPQW/img/a_icon3.png':'https://win-east.cn/winsPQW/img/a_icon2.png'}}"></image>
+        <!-- <image class="arrow2" src="../../images/a_icon3.png"></image> -->
+      </view>
+    </view>
+    <!-- 音频弹窗 -->
+     <view class="audio_list" wx:if="{{audioFlag}}">
+      <view class="a_li" wx:for="{{detailInfo.goodsinfo.voice_list}}" wx:key="voice_list">
+        <view class="name">{{item.name}}</view>
+        <view class="time">
+          <image src="../../images/time.png"></image>
+          <text>{{item.time}}</text>
+        </view>
+      </view>
+     </view>
+    <view class="bottom">
+      <view class="total">
+        <text>金币数：{{goodsNum*detailInfo.goodsinfo.price}}</text>
+      </view>
+      <view class="ch_btn" catchtap="changeGoodsClick">立即兑换</view>
+    </view>
+  </view>
+</view>
+<view class="mask_box"  wx:if="{{maskFlag}}">
+  <view class="hide_mask" bindtap="hideMask"></view>
+  <view class="m_box">
+    <image class="cloes_btn" src="https://win-east.cn/winsPQW/img/close_btn.png" bindtap="hideMask"></image>
+    <view class="top">
+       <image src="{{detailInfo.goodsinfo.images[0]}}"></image>
+       <view class="info">
+          <view class="p_text1"><text>金币</text>{{detailInfo.goodsinfo.price}}</view>
+          <view class="title1">{{detailInfo.goodsinfo.name}}</view>
+          <view class="title2">{{detailInfo.goodsinfo.describe}}</view>
+       </view>
+    </view>
+    <view class="sku_box" wx:if="{{labelsList.length>0}}">
+      <view class="s_text">选择规格</view>
+      <view class="sku_list">
+        <text class="{{item.isCheck?'active':''}}" wx:for="{{labelsList}}" wx:key="labelsList" data-id="{{item.id}}" data-is_check="{{item.isCheck}}" data-label_name="{{item.sku}}" bindtap="selectCheck">{{item.sku}}</text>
+      </view>
+    </view>
+    <view class="num_box">
+      <view class="n_text">购买数量</view>
+      <view class="select_num">
+        <view class="rev_box" wx:if="{{goodsNum==1}}" >
+          <image class="rev" src="https://win-east.cn/winsPQW/img/s_icon2.png"></image>
+        </view>
+         <view class="rev_box"  wx:else   catchtap="revNum">
+          <image class="rev" src="https://win-east.cn/winsPQW/img/s_icon4.png"></image>
+        </view>
+        <text class="num">{{goodsNum}}</text>
+        <view class="add_box"  catchtap="addNum"  wx:if="{{goodsNum>=1&&goodsNum<maxNum}}">
+          <image class="add" src="https://win-east.cn/winsPQW/img/s_icon1.png">+</image>
+        </view>
+        <view class="add_box"   wx:if="{{goodsNum>=maxNum}}">
+          <image class="add"  src="https://win-east.cn/winsPQW/img/s_icon3.png">+</image>
+        </view>
+        
+
+      </view>
+    </view>
+    <view class="bottom">
+      <view class="total">
+        <text>金币数：{{goodsNum*detailInfo.goodsinfo.price}}</text>
+      </view>
+      <view class="ch_btn" catchtap="changeGoodsClick">立即兑换</view>
+    </view>
+  </view>
+</view>
+
+
+<view class="loading" wx:if="{{loadFlag}}">
+  <view>
+    <image src="../../images/loading.gif"></image>
+    <view class="text">加载中...</view>
+  </view>
+</view>

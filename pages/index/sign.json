@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "cropper":"/pages/index/cropper"
+  },
+  "navigationBarTitleText": "签到海报"
+}

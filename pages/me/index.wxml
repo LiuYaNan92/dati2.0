@@ -1,0 +1,87 @@
+<information title="hello" wx:if="{{isFlag}}"></information>
+
+<view class="info_box">
+    <view class="tou-img">
+      <image src="{{headImg}}"></image>
+      <view class="lev-box">
+        <text>{{levelName}}</text>
+      </view>
+    </view>
+    <view class="name-box">
+      <view class="text1">
+        <view class="name">{{nickName}}</view>
+        <view class="right" bindtap="toPersonal" wx:if="{{!isFlag}}">
+          <text>个人信息</text>
+          <image src="https://win-east.cn/winsPQW/img/back.png"></image>
+        </view>
+      </view>
+      <view class="text2">用户ID：{{userId}}</view>
+    </view>
+  
+</view>
+
+<view class="list_box">
+  <view class="list" bindtap="toSotryList">
+    <view class="left">
+      <image class="icon" src="https://win-east.cn/winsPQW/img/m_icon1.png"></image>
+      <text>哄睡故事</text>
+    </view>
+    <image class="arrow" src="https://win-east.cn/winsPQW/img/back2.png"></image>
+  </view>
+   <view class="list" bindtap="toAnswerLog">
+    <view class="left">
+      <image class="icon" src="https://win-east.cn/winsPQW/img/m_icon6.png"></image>
+      <text>往期题目</text>
+    </view>
+    <image class="arrow" src="https://win-east.cn/winsPQW/img/back2.png"></image>
+  </view>
+  <view class="list" bindtap="toOrderList">
+    <view class="left">
+      <image class="icon" src="https://win-east.cn/winsPQW/img/m_icon2.png"></image>
+      <text>我的订单</text>
+    </view>
+    <image class="arrow" src="https://win-east.cn/winsPQW/img/back2.png"></image>
+  </view>
+  <view class="list" bindtap="toAddressList">
+    <view class="left">
+      <image class="icon" src="https://win-east.cn/winsPQW/img/m_icon3.png"></image>
+      <text>我的地址</text>
+    </view>
+    <image class="arrow" src="https://win-east.cn/winsPQW/img/back2.png"></image>
+  </view>
+  <view class="list" bindtap="toGoldLog">
+    <view class="left">
+      <image class="icon" src="https://win-east.cn/winsPQW/img/m_icon4.png"></image>
+      <text>我的兑换</text>
+    </view>
+    <image class="arrow" src="https://win-east.cn/winsPQW/img/back2.png"></image>
+  </view>
+  <view class="list last" bindtap="toService">
+    <view class="left">
+      <image class="icon" src="https://win-east.cn/winsPQW/img/m_icon5.png"></image>
+      <text>客服消息</text>
+    </view>
+    <image class="arrow" src="https://win-east.cn/winsPQW/img/back2.png"></image>
+    <!-- <button open-type="contact" bindcontact="handleContact"></button> -->
+  </view>
+</view>
+
+<view class="footer">
+  <view class="f_li" bindtap="toIndex">
+    <image src="https://win-east.cn/winsPQW/img/icon1.png"></image>
+    <view class="text">首页</view>
+  </view>
+  <view class="f_li" bindtap="toMall">
+    <image src="https://win-east.cn/winsPQW/img/icon2.png"></image>
+    <view class="text">商城</view>
+  </view>
+  <view class="f_li" bindtap="toWelfare">
+    <image src="https://win-east.cn/winsPQW/img/icon3.png"></image>
+    <view class="text">福利</view>
+    <view class="is_show" wx:if="{{msgIsShow!=0}}"></view>
+  </view>
+  <view class="f_li">
+    <image src="https://win-east.cn/winsPQW/img/b_icon4.png"></image>
+    <view class="text">我的</view>
+  </view>
+</view>

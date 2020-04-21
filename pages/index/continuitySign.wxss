@@ -1,0 +1,118 @@
+.bg{
+  width:100%;
+  height:100vh;
+  position:absolute;
+  top:0;left:0;
+}
+.sign_box{
+  position: relative;
+  z-index:1;
+  width:698rpx;
+  background:#fff;
+  border-radius:20rpx;
+  margin:488rpx auto 0;
+  text-align: center;
+}
+.sign_box .img1{
+  width:299rpx;
+  height:28rpx;
+  margin-top:40rpx;
+}
+.sign_box .title{
+  font-size:36rpx;
+  margin-top:40rpx;
+}
+.sign_box .title text{
+  color:#c21010;
+}
+.sign_box .reward_box{
+  width:642rpx;
+  margin:78rpx auto 0;
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.sign_box .r_box{
+  width:306rpx;
+  padding-bottom:40rpx;
+}
+.sign_box .r_box .r_l{
+  width:306rpx;
+  height:332rpx;
+  position: relative;
+  background:#f9fafa;
+  border-radius:20rpx;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.sign_box .r_box .top_icon{
+  width:230rpx;
+  height:80rpx;
+  border-radius:20rpx 0 40rpx 0;
+  background:#ebedee;
+  font-size:38rpx;
+  color:#c9cbcd;
+  position:absolute;
+  top:0;left:0;
+  line-height:80rpx;
+}
+.sign_box .r_box .text{
+  font-size:140rpx;
+  color:#c9cbcd;
+  display:flex;
+  align-items: center;
+}
+.sign_box .r_box text{
+  font-size:63rpx;
+}
+.sign_box .r_box .r_btn1{
+  width:314rpx;
+  height:65rpx;
+  text-align: center;
+  line-height: 65rpx;
+  font-size:30rpx;
+  border-radius:20rpx;
+  margin-top:28rpx;
+  background:#ebedee;
+  color:#b5b7b8;
+  
+}
+.sign_box .r_box .r_btn2{
+  width:311rpx;
+  height:64rpx;
+  display:none;
+  margin-top:28rpx;
+}
+.sign_box .r_box .r_btn2 image{
+  width:311rpx;
+  height:64rpx;
+}
+.sign_box .r_box.active .r_btn1{
+  display: none;
+}
+.sign_box .r_box.active .r_btn2{
+  display: block;
+}
+.sign_box .r_box.active .r_l{
+  background:#fdc938;
+  color:#fff;
+}
+.sign_box .r_box.active .text{
+  color:#fff;
+}
+.sign_box .r_box.active .top_icon{
+  background:#365fbc;
+  color:#fff;
+}
+.r_img{
+  width:697rpx;
+  position:relative;
+  z-index: 1;
+  margin:72rpx auto 0;
+}
+.r_img image{
+  width:697rpx;
+  height:523rpx;
+}

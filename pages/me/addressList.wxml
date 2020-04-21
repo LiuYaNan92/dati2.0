@@ -1,0 +1,27 @@
+<view class="list_box">
+  <view class="list" wx:for="{{addressList}}" wx:key="addressList" data-addressid="{{item.addressid}}" bindtap="editAddress">
+    <!-- <view class="check_box" data-addressid="{{item.addressid}}" data-isCheck="{{item.isCheck}}" catchtap="selectCheck">
+      <image wx:if="{{item.item.is_default==1}}" src="https://win-east.cn/winsPQW/img/checked.png"></image>
+      <image wx:else src="https://win-east.cn/winsPQW/img/check.png"></image>
+    </view> -->
+    <view class="right_text">
+      <view class="text2">
+       
+        <text>{{item.local}}{{item.detail}}</text>
+      </view>
+      <view class="r_box">
+        <view class="text1"> <text class="default" wx:if="{{item.is_default==1}}">默认</text><text class="t_1">{{item.phonenumber}}</text><text class="t_2">{{item.username}}</text> </view>
+        <view class="set_btn">
+          <image class="img" src="https://win-east.cn/winsPQW/img/back2.png"></image>
+        </view>
+       
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="add_btn" bindtap="addressBtn">添加新地址</view> 
+<!-- <view class="set_default">
+  <view class="set_btn">设置为默认地址</view>
+</view> -->
+

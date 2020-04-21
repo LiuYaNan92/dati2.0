@@ -1,0 +1,141 @@
+<view class="list">
+    <image src="https://win-east.cn/winsPQW/img/w_img1.jpg"></image>
+    <view class="title">邀好友，赚金币</view>
+    <view class="box">
+        <view class="l_box">
+            <view class="text1">邀新宝妈宝爸  赚金币  得好礼  养好娃</view>
+            <!-- <view class="text2">2019-02-12  15:23:42</view> -->
+        </view>
+        <view class="r_box">
+            <view class='btn' bindtap="toInvitation" style="position:relative;top:0;">点击查看</view>
+        </view>
+    </view>
+</view>
+
+<view class="list" wx:for="{{list}}" wx:key="list">
+    <image src="{{item.banner}}"></image>
+    <view class="title">{{item.name}}</view>
+    <view class="r_box">
+        <view class='btn' bindtap="fillInfo" wx:if="{{item.type==1&&item.is_get==3}}">请完善认证信息</view>
+        <view class='btn' data-welfareid="{{item.welfareid}}" data-giftype="{{item.gifttype}}" data-type="{{item.type}}" bindtap="festivalWelfare" wx:if="{{item.type==1&&item.is_get==0&&item.isShow==false}}">查看生日礼包</view>
+        <view class="btn" wx:if="{{item.type==1&&item.is_get==0&&item.isShow==true}}">生日当天领取</view>
+        <view class='btn' data-welfareid="{{item.welfareid}}" data-type="{{item.type}}" bindtap="festivalWelfare" wx:if="{{item.type==2&&item.is_get==0}}">查看福利</view>
+    </view>
+    <view class="is_box" wx:if="{{item.is_get==1}}">
+      <image src="../../images/w_pic.png"></image>
+    </view>
+    <view class="box">
+        <view class="l_box">
+            <view class="text1">{{item.introduce}}</view>
+            <!-- <view class="text2">2019-02-12  15:23:42</view> -->
+        </view>
+    </view>
+    <view class="time" wx:if="{{item.type==1&&item.is_get==0}}" >生日当天会有惊喜等着您！</view>
+</view>
+
+
+
+<view class="welMask" wx:if="{{welMaskFlag1}}">
+    <view class="wel_box">
+      <image class="close_btn" src="https://win-east.cn/winsPQW/img/close_btn2.png" bindtap="hideMask"></image>
+      <view class="text1">恭喜您获得</view>
+      <view class="text2" wx:if="{{welfareType==1}}">{{welfareInfo.name}}</view>
+      <view class="text2" wx:if="{{welfareType==2}}">虚拟商品金币奖励{{welfareInfo.gold}}枚</view>
+      <image class="img" wx:if="{{welfareType==1}}" src="{{welfareInfo.cover_image}}"></image>
+      <image class="img" wx:if="{{welfareType==2}}" src="{{welfareInfo.cover_image}}"></image>
+      <view class="w_btn" bindtap="getWelfare">立即领取</view>
+      <view class="text3" wx:if="{{welfareType==1}}">我们将在7个工作日内发货</view>
+    </view>
+</view>
+<view class="welMask" wx:if="{{welMaskFlag2}}"  bindtap="hideMask">
+    <view class="wel_box">
+      <image class="w_img1" src="https://win-east.cn/winsPQW/img/w_close.png"></image>
+      <view class="w_text1">领取失败</view>
+      <view class="w_text2">金币不足请努力获取金币！</view>
+      <view class="w_btn1">确定</view>
+    </view>
+</view>
+
+
+
+
+<view class="mask_box" wx:if="{{infoFlag}}">
+  <view class="m_box">
+    <image src="https://win-east.cn/winsPQW/img/close_btn.png" class="close_btn" bindtap="hideMask"> </image>
+    <form bindsubmit="{{!isBand?'addInformation':''}}">
+        <view class="add-box">
+          <view class="title">基本信息认证</view>
+            <view class="a-list">
+              <!-- <text class="a-text">年龄</text> -->
+              <input type="text" value="{{name}}" name="name" placeholder="姓名"></input>
+            </view>
+            <view class="a-list">
+              <!-- <text class="a-text"></text> -->
+              <input type="number" maxlength='11' value="{{phone}}" name="phone" placeholder="请输入手机号"></input>
+            </view>
+            <view class="a-list">
+                <!-- <view class="a-text">所在地区</view> -->
+                <view class="d-box" bindtap="selectDateShow">
+                  <view class="picker" style="color:{{date=='请选择出生年月日'?'#999':'#222'}};">
+                    {{date}}             
+                  </view>
+                </view>
+                <image class="up" src="https://win-east.cn/winsPQW/img/back2.png"></image>
+            </view>      
+
+            <view class="btn-box">
+              <button class='add-btn' formType="submit" >完成</button>
+              <view class="tip">完成认证信息获得金币<text>+5</text></view>
+            </view>
+        </view> 
+    </form>
+  </view>
+</view>
+
+<view class="mask-box" wx:if="{{dateFlag}}" bindtap="hideData"></view>
+<view class="date-warp" wx:if="{{dateFlag}}">
+  <view class="text-box">
+    <view class="text1" bindtap="hideData">取消</view>
+    <view class="text2" bindtap="selectData">确定</view>
+  </view>
+  <picker-view indicator-style="height: 50px;text-align:center;font-size:30rpx;" value="{{value}}" bindchange="bindChange">
+      <picker-view-column>
+        <view wx:for="{{years}}" wx:key="years" style="line-height: 50px;text-align:center;">{{item}}年</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view wx:for="{{months}}" wx:key="months" style="line-height: 50px;text-align:center;">{{item}}月</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view wx:for="{{days}}" wx:key="days" style="line-height: 50px;text-align:center;">{{item}}日</view>
+      </picker-view-column>
+    </picker-view>
+</view>
+
+
+
+<view class="footer">
+  <view class="f_li" bindtap="toIndex">
+    <image src="https://win-east.cn/winsPQW/img/icon1.png"></image>
+    <view class="text">首页</view>
+  </view>
+  <view class="f_li" bindtap="toMall">
+    <image src="https://win-east.cn/winsPQW/img/icon2.png"></image>
+    <view class="text">商城</view>
+  </view>
+  <view class="f_li">
+    <image src="https://win-east.cn/winsPQW/img/b_icon3.png"></image>
+    <view class="text">福利</view>
+    <view class="is_show" wx:if="{{msgIsShow!=0}}"></view>
+  </view>
+  <view class="f_li" bindtap="toMe">
+    <image src="https://win-east.cn/winsPQW/img/icon4.png"></image>
+    <view class="text">我的</view>
+  </view>
+</view>
+
+<view class="loading" wx:if="{{loadFlag}}">
+  <view>
+    <image src="../../images/loading.gif"></image>
+    <view class="text">加载中...</view>
+  </view>
+</view>

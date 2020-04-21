@@ -1,0 +1,39 @@
+<form bindsubmit="{{!isBand?'addressEdit':''}}">
+    <view class="add-box">
+        <view class="a-list">
+          <text class="a-text">12313133333333</text>
+          <input type="text" value="{{name}}" name="name" placeholder="请输入收货人姓名" bindinput="getName"></input>
+        </view>
+        <view class="a-list">
+          <text class="a-text">联系方式</text>
+          <input type="number" maxlength='11' value="{{phone}}" name="phone" placeholder="请输入联系方式" bindinput="getPhoneNumber"></input>
+        </view>
+        <view class="a-list">
+            <view class="a-text">所在地区</view>
+            <picker mode="region"  bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+                <view class="picker"  style="color:{{sizeFlag==true?'#999':'#222'}}">
+                  {{province}}
+                </view>
+            </picker>
+            <image src="https://win-east.cn/winsPQW/img/back2.png" class="back2"></image>
+        </view>      
+        <view class="a-list" style="align-items:flex-start;">
+          <view class="a-text">详情地址</view>
+          <textarea name="detailAddress" placeholder="请输入详细地址" value="{{address}}" bindinput="getAddress"></textarea>
+        </view>
+       <view class="a-list last">
+          <!-- <view class="set_btn" wx:if="{{isDefault==1}}"></view>
+          <view class="set_btn" wx:else>设置为默认地址</view> -->
+          <view class="remind-box">
+            <text>设置为默认地址</text>
+            <image src="{{isDefault==1?'https://win-east.cn/winsPQW/img/on.png':'https://win-east.cn/winsPQW/img/off.png'}}" bindtap="remindClick"></image>
+          </view>
+          <view class="delText" bindtap="delAddress" wx:if="{{delFlag}}">删除地址</view>
+       </view>
+        <view class="btn-box">
+          <button class='add-btn' formType="submit" >确定保存</button>
+          <view class="tip">*请注意！确定保存后会自动设置为默认地址</view>
+        </view>
+    </view>  
+
+</form>

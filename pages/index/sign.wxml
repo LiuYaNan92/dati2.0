@@ -1,0 +1,66 @@
+
+<!-- <image-cropper></image-cropper> -->
+<view class='body' wx:if="{{imgBox}}">
+  <cropper id='cropper' class='stage'></cropper>
+  <view class='bar'>
+    <view class='btn btn-cancel ripple' bindtap='fnCancel'>取消</view>
+    <view class='btn btn-submit ripple' bindtap='fnSubmit'>确定</view>
+  </view>
+</view>
+<view class="sign_box" style="display:block;">
+  <image class="s_img1" src="../../images/simg1.png"></image>
+  <image class="s_img2" src="../../images/simg2.png"></image>
+  
+  <view class="s_img3_box"  bindtap="changeImg">
+    <image class="s_img3" src="https://win-east.cn/winsPQW/img/btn1.png"></image>
+  </view>
+  <!-- <image class="s_img4" src="../../images/s_img4.png"></image> -->
+  <view class="c_box">
+    <image class="s_img4" src="https://win-east.cn/winsPQW/img/s_img4.png"></image>
+    <view>点击上方小图标更换海报~</view>
+  </view>
+  <view class="top_box">
+    <image class="top_img"  src="{{coverImg}}"></image>
+    <!-- <view class="change" bindtap="addImgClick">更换图片</view>   mode="aspectFill"-->
+    <view class="change" bindtap="imageClick">更换图片</view>
+  </view>
+  <view class="content">
+    <view class="c_left">
+      <view class="text1">您的累计签到天数<text>{{signTotal}}</text></view>
+      <view class="text2">今日育儿分享</view>
+      <view class="text3">{{text}}</view>
+    </view>
+    <view class="c_right">
+      <view class="text1">{{month}}月</view>
+      <view class="text2">{{day}}</view>
+    </view>
+  </view>
+  <view class="img_box">
+    <image src="{{qrCode}}" bindtap="saveImg"></image>
+    <view>点击二维码保存海报</view>
+  </view>
+  
+</view>
+
+<!-- <view class="bottom_box">
+  <view class="box">
+    <view class="b_box" bindtap="changeImg">
+      <image class="img1" src="https://win-east.cn/winsPQW/img/btn1.png"></image>
+      <text>换张海报</text>
+    </view>
+    <view class="b_box" bindtap="saveImg">
+      <image class="img2" src="https://win-east.cn/winsPQW/img/btn2.png"></image>
+      <text>保存</text>
+    </view>
+  </view>
+</view> -->
+
+
+<canvas canvas-id='canvas' style="position:absolute;left:-1000rpx;" wx:if="{{canvasFlag}}"></canvas>
+
+<view class="loading" wx:if="{{loadFlag}}">
+  <view>
+    <image src="../../images/loading.gif"></image>
+    <view class="text">加载中...</view>
+  </view>
+</view>

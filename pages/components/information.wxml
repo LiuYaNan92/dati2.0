@@ -1,0 +1,57 @@
+
+<view class="infoText" bindtap="toPersonal">
+  <text class="text" wx:if="{{realName}}">未认证</text>
+  <text>个人信息</text>
+  <image class="in_img" src="https://win-east.cn/winsPQW/img/back.png"></image>  
+</view>
+<view class="info_mask_box" wx:if="{{infoFlag}}">
+  <view class="in_box">
+    <image src="https://win-east.cn/winsPQW/img/close_btn.png" class="close_btn" bindtap="infoHideMask"> </image>
+    <form bindsubmit="{{!isBand?'addInformation':''}}">
+        <view class="add-box">
+          <view class="title">基本信息认证</view>
+            <view class="a-list">
+              <!-- <text class="a-text">年龄</text> -->
+              <input class="input" type="text" value="{{name}}" name="name" placeholder="姓名" ></input>
+            </view>
+            <view class="a-list">
+              <!-- <text class="a-text"></text> -->
+              <input class="input" type="number" maxlength='11' value="{{phone}}" name="phone" placeholder="请输入手机号" ></input>
+            </view>
+            <view class="a-list">
+                <!-- <view class="a-text">所在地区</view> -->
+                <view class="d-box" bindtap="selectDateShow">
+                  <view class="picker" style="color:{{date=='请选择出生年月日'?'#999':'#222'}};">
+                    {{date}}             
+                  </view>
+                </view>
+                <image class="up" src="https://win-east.cn/winsPQW/img/back2.png"></image>
+            </view>      
+
+            <view class="btn-box">
+              <button class='add-btn' formType="submit" >完成</button>
+              <view class="tip">完成认证信息获得金币<text class="t1">+5</text></view>
+            </view>
+        </view> 
+    </form>
+  </view>
+</view>
+
+<view class="mask-box" wx:if="{{dateFlag}}" bindtap="hideData"></view>
+<view class="date-warp" wx:if="{{dateFlag}}">
+  <view class="text-box">
+    <view class="text1" bindtap="hideData">取消</view>
+    <view class="text2" bindtap="selectData">确定</view>
+  </view>
+  <picker-view  class="picker_box" indicator-style="height: 50px;text-align:center;font-size:30rpx;" value="{{value}}" bindchange="bindChange">
+      <picker-view-column>
+        <view wx:for="{{years}}" wx:key="years" style="line-height: 50px;text-align:center;">{{item}}年</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view wx:for="{{months}}" wx:key="months" style="line-height: 50px;text-align:center;">{{item}}月</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view wx:for="{{days}}" wx:key="days" style="line-height: 50px;text-align:center;">{{item}}日</view>
+      </picker-view-column>
+    </picker-view>
+</view>

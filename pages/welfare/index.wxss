@@ -1,0 +1,8 @@
+.welBox{
+  padding:0 30rpx;
+}
+.welBox .img{
+  width:692rpx;
+  height:264rpx;
+  margin-top:30rpx;
+}

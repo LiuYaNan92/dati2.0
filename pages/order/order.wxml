@@ -1,0 +1,60 @@
+<view class="c-top">
+  <view class="c-li {{tabIndex==0?'active':''}}" bindtap="allList">
+    <view>全部</view>
+    <view class="border"></view>
+  </view>
+  <view class="c-li {{tabIndex==1?'active':''}}" bindtap="deliverGoods">
+    <view>待发货</view>
+    <view class="border"></view>
+  </view>
+  <view class="c-li {{tabIndex==2?'active':''}}" bindtap="receivingGoods">
+    <view>待收货</view>
+    <view class="border"></view>
+  </view>
+  <view class="c-li {{tabIndex==3?'active':''}}" bindtap="completeClick">
+    <view>已完成</view>
+    <view class="border"></view>
+  </view>
+  <view class="c-li {{tabIndex==4?'active':''}}" bindtap="cancelClick">
+    <view>已删除</view>
+    <view class="border"></view>
+  </view>
+</view>
+<view class="c-list" wx:for="{{orderList}}" wx:key="orderList">
+  <view class="l-t">
+    
+    <view class="text1" wx:if="{{item.express_sn==null}}">运单号：暂无</view>
+    <view class="text1" wx:else>运单号：{{item.express_sn}} （{{item.express_name}}）</view>
+    <view class="text2" wx:if="{{item.status==1}}">已完成</view>
+    <view class="state-btn" wx:if="{{item.status==4}}">待发货</view>
+    <view class="state-btn"  wx:if="{{item.status==2}}">待收货</view>
+    <view class="state-btn"  wx:if="{{item.status==3}}">已删除</view>
+  </view>
+  <view class="l-goods">
+    <view class="g-box">
+      <image src="{{item.cover_image}}"></image>
+      <view>
+        <view class="text1">{{item.goodsname}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="c-time">兑换时间：{{item.addtime}}</view>
+  <view class="c-time">订单号：{{item.ordersn}}</view>
+  <view class="gold-num">金币：<text>{{item.paygold}}</text></view>
+  <view class="btn-box">
+    <!-- <view class="state-btn"  wx:if="{{item.status==1&&item.paygold>0}}" data-good_id="{{item.goodsid}}" bindtap="onMoreClick">再来一单</view> -->
+    <view class="state-btn active"  wx:if="{{item.status==2}}" data-oid="{{item.orderid}}" bindtap="setStatus">确认收货</view>
+    <view class="state-btn"  wx:if="{{item.status==4}}" bindtap="showClick">提醒发货</view>
+  </view>
+</view>
+<view class="no-data" wx:if="{{noData}}">暂无数据...</view>
+
+<view class="loading" wx:if="{{loadFlag}}">
+  <view>
+    <image src="../../images/loading.gif"></image>
+    <view class="text">加载中...</view>
+  </view>
+</view>
+
+
+<view class="no-data" wx:if="{{noData}}">暂无数据...</view>

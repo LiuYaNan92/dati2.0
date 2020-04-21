@@ -1,0 +1,153 @@
+page{
+  background:#f5f5f5;
+  padding-top:100rpx;
+}
+.c-top{
+  display:flex;
+  justify-content:space-around;
+  background:#fff;
+  padding:30rpx 0 5rpx;
+  position: fixed;
+  top:0;left:0;
+  width:100%;
+  z-index:2;
+}
+.c-top .c-li{
+  text-align:center;
+  font-size:30rpx;
+  color:#666; 
+}
+.c-top .c-li .border{
+  width:100%;
+  height:4rpx;
+  background:#fff;
+  margin-top:26rpx;
+}
+.c-top .c-li.active{
+  color:#f3302e;
+  font-size:32rpx;
+}
+.c-top .c-li.active .border{
+  width:100%;
+  height:4rpx;
+  background:#f3302e;
+  margin-top:26rpx;
+}
+.c-top image{
+  width:62rpx;
+  height:62rpx;
+}
+.c-list{
+  width:630rpx;
+  margin:30rpx auto 0;
+  background:#fff;
+  padding:30rpx;
+  border-radius:10rpx;
+  position:relative;
+  /* box-shadow:inset 0px 0px 8px #ccc; */
+}
+.c-list .arrow1{
+  width:0;
+  height:0;
+  border:20rpx solid;
+  border-color:#727272 transparent transparent ;
+  position: absolute;
+  top:290rpx;
+  right:30rpx;
+}
+.c-list .arrow2{
+  width:0;
+  height:0;
+  border:20rpx solid;
+  border-color:transparent transparent #727272;
+  position: absolute;
+  top:270rpx;
+  right:30rpx;
+}
+
+.c-list .l-t{
+  display:flex;
+  justify-content:space-between;
+  font-size:30rpx;
+  color:#727272;
+  align-items: center;
+}
+.c-list .l-t .text1{
+  font-size:28rpx;
+  color:#909090;
+}
+.c-list .l-t .text2{
+  font-size:24rpx;
+  color:#f3302e;
+}
+.c-list .gold-num{
+  text-align: right;
+  margin-top:30rpx;
+  font-size:30rpx;
+}
+.c-list .gold-num text{
+  font-size:30rpx;
+}
+.btn-box{
+  display:flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top:40rpx;
+}
+.btn-box .state-btn{
+  border:2rpx solid #ccc;
+  border-radius:30rpx;
+  padding:14rpx 22rpx;
+  color:#747474;
+  margin-left:20rpx;
+  font-size:24rpx;
+  min-width:108rpx;
+  text-align: center;
+}
+.btn-box .state-btn.active{
+  border:2rpx solid #f3302e;
+  color:#f3302e;
+}
+.c-list .l-goods{
+  display:flex;
+  justify-content:space-between;
+  margin-top:30rpx;
+}
+.c-list .g-box{
+  display:flex;
+  padding-bottom:20rpx;
+}
+.c-list .g-box image{
+  width:150rpx;
+  height:150rpx;
+  margin-right:20rpx;
+  border-radius:10rpx;
+}
+.c-list .g-box .text1{
+  font-size:32rpx;
+  margin-top:20rpx;
+  overflow:hidden; 
+  width:365rpx;
+  text-overflow:ellipsis;
+  display:-webkit-box; 
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2; 
+}
+.c-list .g-box .text2{
+  font-size:26rpx;
+  color:#858585;
+  margin-top:10rpx;
+}
+
+.c-list .c-time{
+  font-size:28rpx;
+  color:#909090;
+  padding:10rpx 0 0;
+}
+.no-data{
+  width:100%;
+  height:80vh;
+  align-items:center;
+  display:flex;
+  justify-content: center;
+}

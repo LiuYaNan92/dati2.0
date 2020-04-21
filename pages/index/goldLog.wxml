@@ -1,0 +1,71 @@
+<view class="g_top">
+  <view class="t_text" bindtap="showMask">金币说明</view>
+  <!-- <view class="box">
+  金币明细
+    <view class="text1 {{goldFlag?'active':''}}" bindtap="goldClick">金币明细</view>
+    <view class="text2 {{changeFlag?'active':''}}" bindtap="changeClick">兑换记录</view>
+  </view> -->
+</view>
+<view class="list_box" wx:if="{{goldFlag}}">
+  <view class="list" wx:for="{{logList}}" wx:key='logList'>
+    <view>
+      <view class="li_text1" wx:if="{{item.type==1}}">签到</view>
+      <view class="li_text1" wx:if="{{item.type==2}}">答题</view>
+      <view class="li_text1" wx:if="{{item.type==3}}">购买商品</view>
+      <view class="li_text1" wx:if="{{item.type==4}}">系统增加</view>
+      <view class="li_text1" wx:if="{{item.type==5}}">购买音频</view>
+      <view class="li_text1" wx:if="{{item.type==6}}">生日福利</view>
+      <view class="li_text1" wx:if="{{item.type==7}}">活动福利</view>
+      <view class="li_text1" wx:if="{{item.type==8}}">填写生日</view>
+      <view class="li_text1" wx:if="{{item.type==9}}">邀请用户</view>
+      <text class="li_text2">{{item.addtime}}</text>
+    </view>
+    <view class="li_text3" wx:if="{{item.act_type==1}}">+{{item.gold}}</view>
+    <view class="li_text3" wx:if="{{item.act_type==2}}">-{{item.gold}}</view>
+  </view>
+</view>
+
+<view class="change_box" wx:if="{{changeFlag}}">
+  <view class="c-list" wx:for="{{changeList}}" wx:key="changeList">
+    <view class="l-goods">
+      <view class="g-box">
+        <image src="{{item.cover_image}}"></image>
+        <view>
+          <view class="text1">{{item.goodsname}}</view>
+          <view class="text3" wx:if="{{item.label!=null}}">规格：{{item.label}}</view>
+          <view class="gold-num">金币：<text>{{item.paygold}}</text></view>
+        </view>
+      </view>
+    </view>
+     <view class="c-time">
+      <text>兑换时间：{{item.addtime}}</text>
+      <view class="{{item.isShow?'arrow1':'arrow2'}}" wx:if="{{item.voice_list.length>0}}" data-id="{{item.orderid}}" data-is_show="{{item.isShow}}" bindtap="upClick"></view>
+      <!-- <view class="arrow2" wx:if="{{!item.isShow}}" data-id="{{item.orderid}}" data-is_show="{{item.isShow}}" bindtap="upClick"></view> -->
+    </view>
+     
+     <view class="audio_list" wx:if="{{item.isShow}}">
+      <view class="a_li" wx:for="{{item.voice_list}}" wx:for-item="voice_list" wx:key="voice_list">
+        <view class="name">{{voice_list.name}}</view>
+        <view class="time">
+          <image src="../../images/time.png"></image>
+          <text>{{voice_list.time}}</text>
+        </view>
+      </view>
+     </view>
+  </view>
+</view>
+
+<view class="mask_box" wx:if="{{maskFlag}}">
+  <view class="m_box">
+    <image class="img1" src="https://win-east.cn/winsPQW/img/close_btn.png" bindtap="hideMask"></image>
+    <image class="img2" src="https://win-east.cn/winsPQW/img/gold_img.png"></image>
+  </view>
+</view>
+<view class="no-data" wx:if="{{noData}}">暂无数据...</view>
+
+<view class="loading" wx:if="{{loadFlag}}">
+  <view>
+    <image src="../../images/loading.gif"></image>
+    <view class="text">加载中...</view>
+  </view>
+</view>

@@ -1,0 +1,26 @@
+
+<view class="list_box">
+  <view class="list" wx:for="{{logList}}" wx:key='logList'>
+    <view>
+      <view class="left">
+        <image class="tou" src="{{item.headimgurl}}"></image>
+        <view>
+          <view class="li_text1">{{item.nickName}}</view>
+          <text class="li_text2">{{item.addtime}}</text>
+        </view>
+      </view>
+      <view class="red" style="font-size:28rpx;color:red;padding-left:20rpx;position:relative;top:-16rpx;" wx:if="{{item.gold==0}}">当日邀请已达上限</view>
+    </view>
+    <view class="li_text3">+{{item.gold}}</view>
+  </view>
+</view>
+
+
+<view class="no-data" wx:if="{{noData}}">暂无数据...</view>
+
+<view class="loading" wx:if="{{loadFlag}}">
+  <view>
+    <image src="../../images/loading.gif"></image>
+    <view class="text">加载中...</view>
+  </view>
+</view>

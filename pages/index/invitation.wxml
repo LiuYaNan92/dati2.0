@@ -1,0 +1,45 @@
+<view class="in_bg">
+  <image src="https://win-east.cn/winsPQW/img/in_bg.jpg"></image>
+</view>
+<view class="in_box1">
+  <view class="in_title">-您已成功邀请{{info.user_count}}人-</view>
+  <view class="in_bg">
+    <view class="text1">已获得金币</view>
+    <view class="text2">
+      <text>{{info.gold_total}}</text>
+      <image src="https://win-east.cn/winsPQW/img/in_icon1.png"></image>
+    </view>
+    <view class="text3" bindtap="goInvitationLog">我的邀请记录>></view>
+  </view>
+</view>
+<view class="in_box3">
+  <image src="https://win-east.cn/winsPQW/img/in_img2.jpg"></image>
+  <view>
+    <view class="text">1.每成功邀请一人金币+5；</view>
+    <view class="text">2.被邀请用户,完成基本信息采集后可一次性获赠金币+5；</view>
+    <view class="text">3.当日邀请人数上限为500人，邀请人数达到上限后金币不再继续增加；</view>
+    <view class="text">4.发现账号存在恶意刷量用户数据异常等情况做出封停账号的处罚；</view>
+    <view class="text">5.最终解释权归北京雯思东方传媒科技有限公司所有。</view>
+  </view>
+</view>
+<view class="in_box2">
+  <!-- <image src="../../images/in_img1.png"></image> -->
+  <image src="https://win-east.cn/winsPQW/img/in_img1.png"></image>
+</view>
+
+
+<view class="btn_box">
+  <image src="https://win-east.cn/winsPQW/img/in_btn.png" bindtap="invitaitonClick"></image>
+</view>
+
+<view class="mask_box" wx:if="{{maskFlag}}">
+  <view class="content">
+    <view class="img_box">
+      <image class="img1" src="../../images/inv_bg.png" bindlongtap="saveImg"></image>
+      <image class="img3" src="{{qCodeImg}}" bindlongtap="saveImg"></image>
+    </view>
+    <image class="img2" src="https://win-east.cn/winsPQW/img/close_btn2.png" bindtap="hideMask"></image>
+  </view>
+</view>
+
+<canvas canvas-id='canvas' style="position:absolute;left:-1000px;width:375px;height:667px;"  wx:if="{{canvasFlag}}"></canvas>

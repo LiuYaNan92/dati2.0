@@ -1,0 +1,216 @@
+page{
+  background:#f6f6f6;
+}
+.box{
+  width:630rpx;
+  padding:30rpx;
+  background:#fff;
+  margin:22rpx auto;
+  border-radius:20rpx;
+}
+.box .title{
+  font-size:36rpx;
+  font-weight: bold;
+}
+.box .list{
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top:46rpx;
+}
+.box .list .text1{
+  font-size:30rpx;
+}
+.box .list .text2{
+  font-size:24rpx;
+  color:#909090;
+}
+.box .list .r_btn{
+  width:148rpx;
+  height:52rpx;
+  border:2rpx solid #000;
+  border-radius:30rpx;
+  background:#74b2ba; 
+  color:#222;
+  font-size:24rpx;
+  text-align: center;
+  line-height:52rpx;
+}
+.box .list .r_btn.active{
+  background:#eee;
+  border:1px solid #eee;
+}
+
+
+
+.mask_box{
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.5);
+  position: fixed;
+  top:0;left:0;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.mask_box .m_box{
+  width:605rpx;
+  height:954rpx;
+  position: relative;
+}
+.mask_box .m_box .close_btn{
+  width:64rpx;
+  height:64rpx;
+  position: absolute;
+  top:0;right:0;
+}
+.address-box{
+  width:100%;
+  height: 100%;
+  background:rgba(0,0,0,0.5);
+  position: fixed;
+  top:0;left:0;right:0;bottom:0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color:#333;
+}
+.add-box{
+  width:605rpx;
+  height:852rpx;
+  background:#fff;
+  border-radius:20rpx;
+  margin-top:102rpx;
+  
+}
+.add-box .title{
+  text-align: center;
+  font-size:36rpx;
+  padding-top:120rpx;
+  color:#222;
+}
+.add-box .a-list{
+  display: flex;
+  justify-content: space-between;
+  align-items:center;
+  border-bottom:2rpx solid #eee;
+  width:420rpx;
+  margin:0 auto;
+  padding:13rpx 0;
+  margin-top:30rpx;
+}
+.add-box .a-list.remarks{
+  align-items:top;
+  height:100rpx;
+  border-top:2rpx solid #e0e0e0;
+}
+.add-box .a-list image{
+  width:12rpx;
+  height:22rpx;
+}
+.add-box .a-list.remarks textarea{
+  width:530rpx;
+  /* border:2rpx solid #ccc; */
+  height: 60rpx;
+  margin-top:24rpx;
+}
+.add-box .a-text{
+  font-size:30rpx;  
+}
+.add-box input{
+  width:480rpx;
+  text-align:left;
+  height: 60rpx;
+  font-size:30rpx;
+}
+.add-box .a-list .picker{
+  font-size:30rpx;
+  width:400rpx;
+  height:60rpx;
+  margin-top:8rpx;
+  display: flex;
+  align-items: center;
+  justify-content:flex-start;
+}
+
+.add-box .a-list textarea{
+  width:480rpx;
+  height: 100rpx;
+  border-radius:8rpx;
+  font-size:30rpx;
+}
+.add-box .btn-box{
+  width:100%;
+  margin-top:58rpx;
+}
+.add-box .btn-box button{
+  background:none;
+  width:290rpx;
+  height: 88rpx;
+  color:#fff;
+  background:#75b2b7!important;
+  border-radius:44rpx;
+  font-weight: normal;
+
+}
+.add-box .btn-box .tip{
+  font-size:24rpx;
+  color:#2f2f2f;
+  margin-top:30rpx;
+  text-align:center;
+}
+.add-box .btn-box .tip text{
+  color:#dd1e1e;
+}
+
+input::-webkit-input-placeholder {
+         /* placeholder颜色  */
+         color: #999;
+          /* placeholder字体大小  */
+        font-size: 30rpx;
+}
+textarea::-webkit-input-placeholder {
+  /* placeholder颜色  */
+    color: #999;
+   /* placeholder字体大小  */
+  font-size: 30rpx;
+}
+
+
+
+.mask-box{
+  width:100%;
+  height:100%;
+  position: fixed;
+  top:0;left:0;
+  background:rgba(0,0,0,0.5);
+}
+.date-warp{
+  position: fixed;
+  width: 100%;
+  height: 600rpx;
+  bottom:0;left:0;
+  background:#fff;
+
+}
+.date-warp .text-box{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height:80rpx;
+  line-height:80rpx;
+  padding:0 30rpx;
+  border-bottom:2rpx solid #dfdfdf;
+}
+.date-warp .text-box .text2{
+  color:#1aad19;
+}
+
+picker-view{
+  position: fixed;
+  bottom:90rpx;left:0;
+  background:#fff;
+  width: 100%;
+  height:300rpx;
+}

@@ -1,0 +1,131 @@
+page{
+  padding-bottom:30rpx;
+}
+
+.tab-list{
+  width:684rpx;
+  margin:20rpx auto;
+  box-sizing: border-box;
+  background:#fff;
+  border-radius:10rpx;
+  padding:30rpx;
+  position: relative;
+}
+.tab-list .d_img{
+  width:124rpx;
+  height:122rpx;
+  position: absolute;
+  top:0;left:0;
+}
+.tab-list .title1{
+  font-size:40rpx;
+  color:#222;
+  text-align:center;
+  font-weight:bold;
+  margin-top:18rpx;
+}
+.tab-list .title2{
+  font-size:32rpx;
+  text-align:center;
+  margin-top:30rpx;
+}
+.tab-list .img{
+  text-align: center;
+  margin-top:40rpx;
+}
+.tab-list .img image{
+  width:300rpx;
+  height:200rpx;
+}
+.option{
+  margin:30rpx auto;
+  width:540rpx;
+}
+.option .o-list{
+  box-sizing: border-box;
+  display:flex;
+  align-items: center;
+  width:540rpx;
+  min-height:92rpx;
+  border:2rpx solid #000;
+  border-radius:50rpx;
+  padding:20rpx 36rpx;
+  font-size:28rpx;
+  margin-bottom:20rpx;
+  color:#666;
+  position: relative;
+}
+.option .o-list .s_img{
+  width:40rpx;
+  height: 40rpx;
+  position: absolute;
+  left:-50rpx;
+}
+.option .o-list .text1{
+  font-size:36rpx;
+  font-weight: bold;
+  margin-right:14rpx;
+}
+
+.option .o-list.error{
+  background:#f3302e;
+  border:2rpx solid #f3302e;
+  color:#fff;
+}
+.option .o-list.right{
+  background:#8cc8b9;
+  border:2rpx solid #8cc8b9;
+  color:#fff;
+}
+
+
+.last_icon{
+  text-align: center;
+  margin:80rpx 0 50rpx;
+}
+.last_icon image{
+  width:267rpx;
+  height:228rpx;
+}
+.last_text{
+  font-size:30rpx;
+  color:#bbb;
+  text-align:center;
+}
+.last_icon_btn{
+  width:334rpx;
+  height:78rpx;
+  background:#b8dcd3;
+  font-size:30rpx;
+  border-radius:50rpx;
+  border:4rpx solid #000;
+  text-align:center;
+  line-height:78rpx;
+  margin:0 auto 34rpx;
+}
+.share_box{
+  border-top:2rpx solid #dfe0df;
+  display: flex;
+  align-items: center;
+  padding:24rpx 0;
+  justify-content:flex-end;
+}
+.share_box .s_box{
+  display:flex;
+  align-items: center;
+  font-size:28rpx;
+  margin-right:34rpx;
+  position: relative;
+}
+.share_box .s_box button{
+  width:150rpx;
+  height:48rpx;
+  position: absolute;
+  top:0;left:0;
+  background: none;
+}
+.share_box .s_box image{
+  width:48rpx;
+  height:48rpx;
+  margin-right:8rpx;
+}

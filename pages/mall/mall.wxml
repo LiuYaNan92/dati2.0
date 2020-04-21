@@ -1,0 +1,48 @@
+<view class="mask" wx:if="{{maskFlag}}">
+  <image class="img1" src="../../images/luck_icon.png" bindtap="goLuckyDraw"></image>
+  <image class="img2" src="https://win-east.cn/winsPQW/img/close.png" bindtap="hideMask"></image>
+</view>
+
+<view class='level_box' wx:for="{{goodsList}}" wx:key="goodsList"  wx:if="{{item.goods_list.length>0}}">
+  <view class="title">{{item.levelname}}</view>
+  <view class="list" wx:for="{{item.goods_list}}" wx:for-item="goods_list" wx:key="goods_list"  data-good_id="{{goods_list.goodsid}}" data-levelname="{{item.levelname}}" bindtap="toDetail">
+    <image class="img" src="{{goods_list.cover_image}}"></image>
+    <view class="l_right">
+      <view class="name1">{{goods_list.name}}</view>
+      <view class="name2">{{goods_list.describe}}</view>
+      <!-- <view class="spe_text" wx:for="{{goods_list.labels}}" wx:for-item="labels" wx:key="labels">{{labels}}</view> -->
+      <view class="spe_text" style="background:none;"></view>
+      <view class="bottom">
+        <view class="text1" wx:if="{{goods_list.sold_total==null}}">已兑：10</view>
+        <view class="text1" wx:else >已兑：{{goods_list.sold_total}}</view>
+        <view class="text2"><text>{{goods_list.price}}</text>金币</view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="footer">
+  <view class="f_li" bindtap="toIndex">
+    <image src="https://win-east.cn/winsPQW/img/icon1.png"></image>
+    <view class="text">首页</view>
+  </view>
+  <view class="f_li">
+    <image src="https://win-east.cn/winsPQW/img/b_icon2.png"></image>
+    <view class="text">商城</view>
+  </view>
+  <view class="f_li" bindtap="toWelfare">
+    <image src="https://win-east.cn/winsPQW/img/icon3.png"></image>
+    <view class="text">福利</view>
+    <view class="is_show" wx:if="{{msgIsShow!=0}}"></view>
+  </view>
+  <view class="f_li" bindtap="toMe">
+    <image src="https://win-east.cn/winsPQW/img/icon4.png"></image>
+    <view class="text">我的</view>
+  </view>
+</view>
+
+<view class="loading" wx:if="{{loadFlag}}">
+  <view>
+    <image src="../../images/loading.gif"></image>
+    <view class="text">加载中...</view>
+  </view>
+</view>

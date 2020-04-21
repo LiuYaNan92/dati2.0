@@ -1,0 +1,83 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+} 
+.login_btn{
+  position:absolute;
+  top:0;left:0;
+  z-index:2;
+}
+page{
+  background:#f6f6f6;
+  color:#222;
+  border-top:1rpx solid #eee;
+}
+.footer{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height:98rpx;
+  padding-bottom:30rpx;
+  padding-top:10rpx;
+  width:100%;
+  position:fixed;
+  bottom:0;left:0;
+  background:#fff;
+  z-index:2;
+  border-top:2rpx solid #eee;
+  box-shadow: 0 0 10rpx 2rpx #eee;
+}
+.footer .f_li{
+  position: relative;
+  width:20%;
+  text-align: center;
+  
+}
+.footer .f_li .is_show{
+  width:20rpx;
+  height:20rpx;
+  border-radius:50%;
+  background:red;
+  position: absolute;
+  top:0;right:46rpx;
+}
+.footer .f_li image{
+  width:50rpx;
+  height:50rpx;
+}
+.footer .f_li .text{
+  font-size:24rpx;
+}
+
+.loading{
+  width:100%;
+  height: 100%;
+  background:#fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top:0;left:0;
+  z-index: 10;
+}
+.loading image{
+  width:200rpx;
+  height:184rpx;
+}
+.loading .text{
+  text-align: center;
+  font-size:30rpx;
+}
+.no-data{
+  width:100%;
+  height:80vh;
+  align-items:center;
+  display:flex;
+  justify-content: center;
+}

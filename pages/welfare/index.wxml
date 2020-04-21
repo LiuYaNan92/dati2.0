@@ -1,0 +1,28 @@
+<view class="welBox">
+  <view class="img" bindtap="toInvitation">
+    <image class="img" src="https://win-east.cn/winsPQW/img/w_img1.jpg"></image>
+  </view>
+  <view class="img" bindtap="toWelfare">
+    <image class="img" src="https://win-east.cn/winsPQW/img/w_img2.jpg"></image>
+  </view>
+</view>
+
+<view class="footer">
+  <view class="f_li" bindtap="toIndex">
+    <image src="https://win-east.cn/winsPQW/img/icon1.png"></image>
+    <view class="text">首页</view>
+  </view>
+  <view class="f_li" bindtap="toMall">
+    <image src="https://win-east.cn/winsPQW/img/icon2.png"></image>
+    <view class="text">商城</view>
+  </view>
+  <view class="f_li">
+    <image src="https://win-east.cn/winsPQW/img/b_icon3.png"></image>
+    <view class="text">福利</view>
+    <view class="is_show" wx:if="{{msgIsShow!=0}}"></view>
+  </view>
+  <view class="f_li" bindtap="toMe">
+    <image src="https://win-east.cn/winsPQW/img/icon4.png"></image>
+    <view class="text">我的</view>
+  </view>
+</view>

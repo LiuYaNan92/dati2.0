@@ -1,0 +1,42 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/index/sign",
+    "pages/index/cropper",
+    "pages/index/cropper-example",
+    "pages/index/goldLog",
+    "pages/index/changeList",
+    "pages/index/answerLog",
+    "pages/index/invitation",
+    "pages/index/invitationLog",
+    "pages/index/article",
+    "pages/index/continuitySign",
+    "pages/mall/mall",
+    "pages/mall/goodsDetail",
+    "pages/mall/luckyDraw",
+    "pages/me/index",
+    "pages/me/center",
+    "pages/me/addressList",
+    "pages/me/addAddress",
+    "pages/me/addressList1",
+    "pages/me/addAddress1",
+    "pages/me/taskCenter",
+    "pages/me/service",
+    "pages/welfare/index",
+    "pages/welfare/welfare",
+    "pages/player/storyList",
+    "pages/player/storyList1",
+    "pages/order/order"
+  ],
+  "requiredBackgroundModes": [
+    "audio"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "养娃必备题库",
+    "navigationBarTextStyle": "black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

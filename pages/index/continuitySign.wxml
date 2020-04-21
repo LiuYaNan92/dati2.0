@@ -1,0 +1,36 @@
+<image mode="widthFix" class="bg" src="../../images/sign_bg.jpg"></image>
+<view class="content">
+  <view class="sign_box">
+    <image class="img1" src="https://win-east.cn/winsPQW/img/s_pic.png"></image>
+    <view class="title">已连续签到<text>30</text>天</view>
+    <view class="reward_box">
+      <view class="r_box active">
+        <view class="r_l">
+          <view class="top_icon">月度奖励</view>
+          <view class="text">
+            <text>+</text>30
+          </view>
+        </view>
+        <view class="r_btn1">30天后可领</view>
+        <view class="r_btn2">
+          <image src="../../images/r_btn.png"></image>
+        </view>
+      </view>
+      <view class="r_box">
+        <view class="r_l">
+          <view class="top_icon">季度奖励</view>
+          <view class="text">
+            <text>+</text>100
+          </view>
+        </view>
+        <view class="r_btn1">60天后可领</view>
+        <view class="r_btn2">
+          <image src="../../images/r_btn.png"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="r_img">
+    <image src="../../images/r_pic.png"></image>
+  </view>
+</view>

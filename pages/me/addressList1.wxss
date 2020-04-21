@@ -1,0 +1,114 @@
+page{
+  background:#f6f6f6;
+}
+.list_box{
+  /* border-top:2rpx solid #eee; */
+}
+.list_box .list{
+  display:flex;
+  box-sizing: content-box;
+  width:668rpx;
+  height:176rpx;
+  font-size:30rpx;
+  background:#fff;
+  border-radius:15rpx;
+  margin:20rpx auto 0;
+  position: relative;
+  align-items: center;
+  padding:0 20rpx
+}
+.list_box .list .checked_icon{
+  width:24rpx;
+  height:30rpx;
+  margin-right:20rpx;
+}
+.list_box .list .checked_icon .img{
+  width:24rpx;
+  height:30rpx;
+}
+.list_box .list .check_box{
+  width:61rpx;
+  height:61rpx;
+  position: absolute;
+  top:0rpx;
+  right:0;
+}
+.list_box .list .img{
+  width:61rpx;
+  height:61rpx;
+}
+.list_box .list .right_text{
+  padding-bottom:20rpx;
+  /* border-bottom:2rpx solid #eee; */
+  width:100%;
+}
+.list_box .list .right_text .r_box{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top:18rpx;
+}
+.list_box .list .right_text .set_btn{
+  width:50rpx;
+  height:50rpx;
+  display: flex;
+  align-items:center;
+  justify-content: flex-end;
+}
+.list_box .list .right_text .set_btn .img{
+  width:12rpx;
+  height:22rpx;
+ 
+}
+.list_box .list .text1{
+  display: flex;
+  align-items: center;
+  font-size:30rpx;
+  color:#666;
+}
+.list_box .list .text1 .t_1{
+  margin-right:18rpx;
+}
+.list_box .list .default{
+  display:inline-block;
+  width:62rpx;
+  height:29rpx;
+  text-align:center;
+  line-height:29rpx;
+  background:#feeaea;
+  font-size:28rpx;
+  color:#f3302e;
+  margin-right:18rpx;
+}
+.list_box .list .text2{
+  margin-top:15rpx;
+  font-size:32rpx;
+  width:580rpx;
+  word-break:break-all;
+
+}
+
+.add_btn{
+  width:204rpx;
+  height:66rpx;
+  text-align:center;
+  line-height:66rpx;
+  margin:84rpx auto 0;
+  border:2rpx solid #666;
+  font-size:32rpx;
+  border-radius:10rpx;
+  margin-bottom:150rpx;
+}
+
+.add_border{
+  width:707rpx;
+  height:100rpx;
+  background:#e72b1f;
+  position: fixed;
+  bottom:26rpx;left:18rpx;
+  text-align:center;
+  line-height:100rpx;
+  font-size:32rpx;
+  color:#fff;
+  border-radius: 40rpx;
+}

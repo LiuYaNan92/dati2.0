@@ -1,0 +1,100 @@
+
+
+
+<view class="s-bg">
+  <image mode="aspectFill" src="../../images/audio_bg.jpg"></image>
+</view>
+<view class="content_box">
+  <view class="box">
+    <view class="s-name">{{storyName}}</view>
+    <!-- <view class="s-author">{{storyAuthor}}</view> -->
+  </view>
+  <view class="l-btn" bindtap="showList">
+    <view></view>
+    <view>
+      <image src="https://win-east.cn/winsPQW/img/list_icon.png"></image>
+      <view>故事列表</view>
+    </view>
+  </view>
+  <slider class="slider" step="1" min="0" max="{{longTime}}" value="{{seekTime}}" block-size="14" bindchange='seek' backgroundColor="#f0f0f0" activeColor="#8cc8b9" block-color="#8cc8b9" bindchanging='seeking'></slider>
+  <view class="play-box"> 
+    <view class="start-time">{{startTime}}</view>
+    <view class="gundong">
+      <view class="gundongBox">
+        <view class="gundongList" style="animation:{{animation?'geiwogun 12s linear infinite':''}};">
+          <image style="width:500rpx;height:58rpx;" src="{{img}}"></image>
+          <image style="width:500rpx;height:58rpx;margin-left:10rpx;" src="{{img}}"></image>
+          <image style="width:500rpx;height:58rpx;margin-left:10rpx;" src="{{img}}"></image>
+          <image style="width:500rpx;height:58rpx;margin-left:10rpx;" src="{{img}}"></image>
+          <image style="width:500rpx;height:58rpx;margin-left:10rpx;" src="{{img}}"></image>
+        </view>
+      </view>
+    </view>  
+    <view class="end-time">{{endTime}}</view>
+  </view>
+  <view class="play-btn">
+    <view style="padding:13rpx 3rpx;" bindtap="prevClick"><image class="prev-btn" src="https://win-east.cn/winsPQW/img/prev.png" ></image></view>
+    <image class="play" src="https://win-east.cn/winsPQW/img/play.png" bindtap="play" wx:if="{{play1}}"></image>
+    <image class="play" src="https://win-east.cn/winsPQW/img/play.png" bindtap="audioPlay" wx:if="{{play2}}"></image>
+    <image class="play" src="https://win-east.cn/winsPQW/img/pause.png" bindtap="pause" wx:if="{{pause}}"></image>
+    <view style="padding:13rpx 3rpx;" bindtap="nextClick"><image class="next-btn" src="https://win-east.cn/winsPQW/img/next.png" ></image></view>
+  </view>
+</view>
+
+<view class="list-box" style="bottom:{{listFlag?'0':'-951rpx'}}">
+<!-- <view class="list-box" style="bottom:0"> -->
+  
+  <view class="t-box">
+    <view bindtap="playAll" style="display:flex;">
+      <image class="t-img1" src="https://win-east.cn/winsPQW/img/s_icon5.png"></image>
+      <view class="all-text">播放全部<text>（共{{list.length}}首）</text></view>
+    </view>    
+    <!-- <image bindtap='refreshClick' class="t-img2" src="../../images/s_icon3.png"  style="animation:{{refresh?'zhuan 1s linear':''}}"></image> -->
+    <!-- <view bindtap="playOrder">{{playText}}</view> -->
+  </view>
+  <scroll-view class="l-warp" scroll-y="true" scroll-into-view="{{toView}}" scroll-width-animation="true">
+      <!-- <view class="list" wx:for="{{list}}" wx:key="list" data-name="{{item.name}}" data-author="{{item.author}}" data-url="{{item.url}}" data-index="{{index}}" data-id="{{item.id}}" id="item{{item.id}}" bindtap="selectMusic"> 
+        <view class="num">{{index+1}}</view>
+        <view class="l-content {{storyIndex==item.id?'active':''}}" style="{{item.id==0?'border-top:2rpx solid #d8d8d8':''}}">
+          <view class="l-text">
+            <text class="name">{{item.name}}</text>
+            <text>时长：{{item.time}}</text>
+          </view>
+        </view>
+      </view> -->
+      <view class="m-list" wx:for="{{aList}}" wx:key="aList"  data-id="{{item.packageid}}" data-is_show="{{item.isShow}}" catchtap="isShow">
+        <view class="l-box">
+          <view class="title_box">
+            <text>{{item.name}}（共{{item.voice_list.length}}首）</text>
+            <text class="pay_btn1" wx:if="{{item.type==1}}">付费</text>
+            <text class="pay_btn2" wx:if="{{item.type==2}}">免费</text>
+          </view>
+          <view>
+            <image wx:if="{{item.isShow}}" class="img" src="https://win-east.cn/winsPQW/img/a_icon1.png"></image>
+            <image wx:else class="img" src="https://win-east.cn/winsPQW/img/p_icon4.png"></image>
+          </view>
+        </view>
+        <view class="li-box" wx:if="{{item.isShow}}">
+          <view class="l-li {{storyIndex==list.id?'active':''}}" wx:if="{{item.voice_list.length>0}}" wx:for="{{item.voice_list}}" wx:for-item="voice_list" wx:key="list" data-name="{{voice_list.name}}" data-author="{{voice_list.author}}" data-url="{{voice_list.url}}" data-index="{{index}}" data-id="{{voice_list.id}}" id="item{{voice_list.id}}" bindtap="selectMusic">
+            <view class="text_num">{{index+1}}</view>
+            <view class="li_box">
+              <view class="left">
+                <view class="name">{{voice_list.name}}</view>
+                <view class="time">
+                  <image wx:if="{{storyIndex==voice_list.id}}" src="https://win-east.cn/winsPQW/img/p_icon3.png"></image>
+                   <image wx:else src="https://win-east.cn/winsPQW/img/time.png"></image>
+                  <text>{{voice_list.time}}</text>
+                </view>
+              </view>
+              <view class="right">
+                <image wx:if="{{storyIndex==voice_list.id}}" class="img" src="https://win-east.cn/winsPQW/img/p_icon2.png"></image>
+                <image wx:else class="img" src="https://win-east.cn/winsPQW/img/p_icon1.png"></image>
+              </view>
+            </view>
+          </view>        
+        </view>
+      </view>
+  </scroll-view>
+  <view class="top-img" bindtap="hideList">关闭</view>
+</view>
+<view class="music-box" wx:if="{{musicFlag}}" bindtap="hideList"></view>

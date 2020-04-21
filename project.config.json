@@ -1,0 +1,229 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"preloadBackgroundData": false,
+		"minified": true,
+		"newFeature": true,
+		"coverView": true,
+		"autoAudits": false,
+		"showShadowRootInWxmlPanel": true,
+		"scopeDataCheck": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.10.4",
+	"appid": "wx126de38e29aca7f1",
+	"projectname": "%E7%AD%94%E9%A2%982.0%E5%B0%8F%E7%A8%8B%E5%BA%8F",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"scripts": {
+		"beforeCompile": "",
+		"beforePreview": "",
+		"beforeUpload": ""
+	},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "商城",
+					"pathName": "pages/mall/mall",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/me/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 2,
+					"name": "裁剪图片",
+					"pathName": "pages/player/storyList1",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 3,
+					"name": "商品详情",
+					"pathName": "pages/mall/goodsDetail",
+					"query": "goodsid=5",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "日签海报",
+					"pathName": "pages/index/sign",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 5,
+					"name": "个人信息",
+					"pathName": "pages/me/center",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "订单",
+					"pathName": "pages/order/order",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "地址列表",
+					"pathName": "pages/me/addressList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 8,
+					"name": "添加收货地址",
+					"pathName": "pages/me/addAddress",
+					"query": "addressid=6",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "金币记录",
+					"pathName": "pages/index/goldLog",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "往期题目",
+					"pathName": "pages/index/answerLog",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "邀请好友",
+					"pathName": "pages/index/invitation",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的任务",
+					"pathName": "pages/me/taskCenter",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "音乐播放器",
+					"pathName": "pages/player/storyList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 14,
+					"name": "福利列表",
+					"pathName": "pages/welfare/welfare",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 15,
+					"name": "连签奖励",
+					"pathName": "pages/index/continuitySign",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "选择下单地址",
+					"pathName": "pages/me/addressList1",
+					"query": "goodsid=2",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "兑换列表",
+					"pathName": "pages/index/changeList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "邀请记录",
+					"pathName": "pages/index/invitationLog",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "福利",
+					"pathName": "pages/welfare/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "客服",
+					"pathName": "pages/me/service",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 21,
+					"name": "pages/index/cropper-example",
+					"pathName": "pages/index/cropper-example",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 22,
+					"name": "首页",
+					"pathName": "pages/index/index",
+					"query": "scene=64731",
+					"scene": null
+				}
+			]
+		}
+	}
+}

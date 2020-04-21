@@ -1,0 +1,161 @@
+page{
+  padding-bottom:130rpx;
+}
+
+.box{
+  display:flex;
+  align-items: flex-start;
+  margin:70rpx 0 0 30rpx;
+}
+.box .img{
+  width:64rpx;
+  height:64rpx;
+  margin-right:20rpx;
+}
+.box .r_text{
+  font-size:24rpx;
+  color:#909090;
+}
+.box .q_list{
+  background:#fff;
+  padding:30rpx 60rpx 40rpx 20rpx;
+  border-radius:20rpx;
+  margin-top:15rpx;
+}
+.box .q_list .text1{
+  font-size:26rpx;
+  color:#000;
+}
+.box .q_list .text2{
+  font-size:30rpx;
+  color:#f3302e;
+  font-weight: bold;
+  margin-top:30rpx;
+
+}
+.box .q_list .text3{
+  font-size:26rpx;
+  color:#f3302e;
+  margin-top:16rpx;
+}
+.box .q_list .text4{
+  font-size:26rpx;
+  color:#909090;
+  margin-top:30rpx;
+}
+
+.box1 .q_list, .box2 .q_list{
+  width:460rpx;
+  padding:30rpx 20rpx;
+}
+.box2{
+  justify-content: flex-end;
+}
+.box2 .img{
+  margin-left:20rpx;
+}
+.box2 .r_text{
+  text-align: right;
+}
+
+.massage{
+  width:100%;
+  height:100rpx;
+  background:#fff;
+  position: fixed;
+  bottom:0;left:0;
+  border-top:2rpx solid #eee;
+  display: flex;
+  align-items: center;
+}
+.massage .text{
+  width:500rpx;
+  height:100%;
+  /* border:2rpx solid #eee; */
+  padding:0 30rpx;
+  font-size:32rpx;
+}
+.massage .add_img{
+ width:42rpx;
+ height:37rpx; 
+}
+.massage .btn{
+  width:100rpx;
+  height:60rpx;
+  background:#74b2ba;
+  color:#fff;
+  font-size:32rpx;
+  margin-left:20rpx;
+  text-align: center;
+  line-height:60rpx;
+  border-radius:10rpx;
+}
+.bottom_box{
+  position: fixed;
+  width:100rpx;
+  text-align: center;
+  right:30rpx;
+  bottom:140rpx;
+  font-size:24rpx;
+
+}
+.bottom_box .text{
+  margin-top:10rpx;
+}
+.s_img{
+  width:88rpx;
+  height:82rpx;
+}
+
+.mask{
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.5);
+  position: fixed;
+  top:0;left:0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mask .m_box{
+  width:486rpx;
+  height:423rpx;
+  position: relative;
+  background:#fff;
+  border-radius:15rpx;
+  text-align: center;
+  position: relative;
+  z-index: 3;
+}
+.mask .img1{
+  width:64rpx;
+  height:64rpx;
+  position: absolute;
+  top:-120rpx;
+  right:-30rpx;
+}
+.mask .img2{
+  width:386rpx;
+  height:423rpx;
+}
+.mask .text1{
+  font-size:30rpx;
+  color:#000;
+  font-weight: bold;
+  margin-top:78rpx;
+}
+.mask .text2{
+  font-size:32rpx;
+  color:#666;
+  padding:70rpx 0;
+}
+.mask .text3{
+  display: inline-block;
+  width:290rpx;
+  height:88rpx;
+  color:#fff;
+  font-size:32rpx;
+  background:#8bc8b9;
+  border-radius:44rpx;
+  line-height:88rpx;
+}
